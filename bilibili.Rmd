@@ -1,0 +1,171 @@
+---
+title: "B站柯南弹幕分析"
+author:
+  - 薛贵林
+documentclass: ctexart
+geometry: "left=1.5cm,right=1.5cm,top=2cm,bottom=2cm"
+output:
+  rticles::ctex:
+    fig_caption: yes
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  comment = ' ',
+  message = FALSE,
+  collapse = TRUE,
+  prompt = TRUE,
+  fig.height = 7,
+  fig.width = 9,
+  fig.align = "center",
+   cache = TRUE,
+   highlight = TRUE #代码高亮
+   #eval = FALSE#是否运行代码
+)
+```
+
+# 数据输入和清洗
+
+本文首先从B站名侦探柯南首页下载网页源代码，并提取出其中包含所有剧集信息的json文件。
+```{r}
+library(stringr)
+library(plyr)
+library(dplyr)
+library(RJSONIO) #不能使用jsonlite，用RJSONIO。
+isValidJSON("1.json") # 判断是否为json的正确格式
+a <- fromJSON("1.json",nullValue = NA, simplify = FALSE) #把json转化为R数据对象
+
+a.1<-do.call("rbind",lapply(lapply(a,t),  
+             data.frame,stringsAsFactors=FALSE))
+```
+
+lapply(a,t)把一个列表转置（这里如果不转置则行数不一致），再转化为data.frame, 再用rbind合并数据框stringsASfactors=false可以保持字符串不变。
+选择需要的部分, 在写入文件时最好把格式统一为字符串，否则有些数据类型无法读入。
+
+```{r}
+a<-as.data.frame(select(a.1,cid,titleFormat,longTitle)) 
+a<-apply(a,2,as.character)
+write.csv(a,"a.csv",row.names = FALSE)
+```
+
+通过找到B站的API地址，构建循环结构下载弹幕文件
+```{r eval=FALSE, include=FALSE}
+cid<-a[,1]
+library(stringr)
+progress_bar<-txtProgressBar(min=0,max=979,style =3)
+for (i in 1:length(cid)) {
+  api = str_c("http://api.bilibili.com/x/v1/dm/list.so?oid=",cid[i])
+  ret = curl_fetch_memory(api)
+  doc = read_xml(ret$content, encoding = "UTF-8")
+  nodes = xml_find_all(doc, ".//d")
+  danmu = xml_text(nodes)
+  print(danmu)
+  note <-file(paste("message",cid[i],".txt",sep='')) #关键是这句实现了批量保存
+  write(danmu,note)
+  setTxtProgressBar(progress_bar,i)
+  Sys.sleep(0.2)
+}
+```
+
+批量读取下载的弹幕文件，并对弹幕文件进行数据清洗。
+```{r}
+files <- list.files(pattern = ".*txt$", full.names = TRUE)%>%  #读取工作路径下所有txt文件名
+str_replace_all("./","")
+dat<- lapply(files,function(x){
+  read.table(x,sep="\t")})  #文本数据读入错误，加入seq=\t后解决
+dat1<-do.call("rbind",dat) 
+dat2<-as.vector(dat1)
+dat2<-str_replace_all(dat2,"n","")
+```
+
+导入jiebaR包和wordcloud2包进行文本分词与可视化。
+```{r}
+library(jiebaR)
+library(wordcloud2)
+```
+
+用segment函数开始分词。
+```{r}
+mixseg<-worker()
+fc<-segment(dat2,mixseg) 
+head(fc)
+```
+
+可以看到分词的效果并不理想，采用停止词，输入需要被过滤的词组命名为"stop Word.txt"。
+```{r}
+t <-readLines("stop word.txt")
+stopwords<-c(NULL)
+for(i in 1:length(t))
+{
+  stopwords[i]<-t[i]
+}
+fc1 <- filter_segment(fc,stopwords)
+head(fc1)
+```
+可以看到，无效的词语大大减少。
+
+# 词频分析
+查看词频前50，发现基本都是单字的词,在不做筛选的情况下fc1的词频统计结果都是常见的单个字，并无多少参考意义，因此我们对fc2进行筛选。
+
+```{r}
+sort(table(fc),decreasing=T)[1:50]
+```
+
+筛选字符串长度介于2-6的词并进行前50的词频统计：  
+```{r}
+fc3<-fc1[nchar(fc1)>1 & nchar(fc1)<7]
+sort(table(fc3),decreasing=T)[1:50]
+```
+
+筛选字符串长度介于3-7的词并进行前300的词频统计：
+```{r}
+fc4<-fc1[nchar(fc1)>1 & nchar(fc1)<8]
+wordf<-sort(table(fc4),decreasing=T)[1:300]
+wordf
+wordfp<-as_tibble(wordf)
+```
+
+筛选字符串介于5-10之间的词并进行前50词频统计:
+```{r}
+fc5<-fc1[nchar(fc1)>4 & nchar(fc1)<11]
+sort(table(fc5),decreasing=T)[1:50]
+```
+# 可视化
+
+## 词云图
+```{r eval=FALSE}
+wordcloud2(wordf, size = 1,color = "random-light",backgroundColor = 'grey',
+           fontFamily = "微软雅黑", shape = 'pentagon')
+```
+
+ ![](D:/R/BILIBILI scrape/Rplot.jpeg)
+
+
+
+## 词频统计绘图
+```{r eval=FALSE}
+library(ggplot2)
+wordfp %>%
+  filter(n > 4000) %>%
+  mutate(fc4 = reorder(fc4, n)) %>%
+  ggplot(aes(fc4, n)) +
+  geom_col(fill="steelblue") +
+  xlab(NULL) +
+  coord_flip()
+```
+
+ ![](D:/R/BILIBILI scrape/Rplot01.png)
+
+
+
+
+## 对角色进行词频计算
+```{r}
+table(fc)[c("哀酱","小哀","灰原哀")]
+table(fc)[c("小兰","毛利兰")]
+table(fc)[c("基德","怪盗")]
+table(fc)[c("柯南","死神")]
+```
+
+
