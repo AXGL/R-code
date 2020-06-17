@@ -1,0 +1,54 @@
+---
+title: "<center>R练习6</center>"
+author: "<center>薛贵林</center>"
+date: "<center>2020/5/18</center>"
+geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm" #设定输出PDF边距 高级做法
+documentclass: ctexart ##这里使用ctexart可以输出中文模板
+#geometry: margin=2cm #初级做法
+output:
+  html_document: default
+  pdf_document: default
+   toc: true  #目录
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,#用于显示代码，不显示就false
+  tidy = TRUE,#使得代码排版更整洁
+  warning = FALSE,#去掉运算结果得到waring信息
+  comment = ' ',#去掉运算结果的“#”号
+  message = FALSE,#去掉运算结果的提示信息
+  collapse = TRUE,#让一个代码块放在一起
+  prompt = TRUE,#代码开头以大于号开始
+  fig.width = 9,
+  fig.height = 6,
+  cache = TRUE,#true时可以缓存代码运行结果，再次运行只会改变改动过的代码。
+  eval = TRUE,#是否运行代码
+  highlight = TRUE #代码高亮
+  )
+```
+```{r}
+
+```
+# $$AR_{t}=\frac{1}{n}\sum_{t=1}^{n}{ar_{it}}$$  ##$ $输出行间公式,$$ $$输出独行公式。
+# Where, $r_{it}$ is the stock price return rate of stock $i$ in year $t$。
+
+``` 
+# 这个代码框内会输出表格和表格名Stock trends statistics
+: Stock trends statistics
+
+Time| Sample | Average excess returns|Cumulative excess return   %% 表格的输出方式
+|:-:|:-:|:-:|:-:|
+2017 | 20 | -0.45818955|-0.45818955|
+2018 | 20 | 0.03302195|-0.4251676|
+2019 | 20 | -0.1022178|-0.5273854|
+```
+```{r}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+# 这个代码适用于代码直接输出表格时使用，需要加载kableextra包和dplyr包,format可以选择输出格式，latex是生成PDF文档，row.names可以定义行名称，col.names可以# 定义列名称，caption可以定义标题，digits可以定义表格数据小数点个数，align定义表格内容居左（l），居右（r）还是居中（z）kablestyling则是kableextra的内容了，另：booktabs生成三线表，longtable=true可以设置表格过于长在第二列继续输出。
+knitr::kable(e, format = "latex", booktabs = TRUE,row.names = FALSE,caption = "xxx",digits = 1,align = "l") %>%  
+          kable_styling(latex_options = "scale_down")  ##适用于输出合适PDF大小的表格
+```

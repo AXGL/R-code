@@ -1,0 +1,99 @@
+---
+title: "<center>**datasauRus**</center>"
+author: "<center>xueguilin</center>"
+output: html_document
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  fig.height = 6,
+  fig.width = 9,
+  comment = ' '
+)
+```
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+## The Tidyverse Libray
+```{r ,results='hide', tidy=TRUE}
+library(tidyverse)
+```
+
+## Loading DatasauRus
+
+
+```{r highlight = TRUE,collapse=TRUE, tidy=TRUE}
+library(datasauRus)
+datasaurus_dozen %>% count(dataset) %>% print(13)
+```
+
+## Viewing the dataset
+```{r,collapse=TRUE, tidy=TRUE}
+datasaurus_dozen
+```
+## Exercise 1 Response:
+* Description: A dataset demonstrating the utility of visualization. These 12 datasets are equal in standard measures: mean, standard deviation, and Pearson's correlation. 
+* Columns: 3
+* Rows: 1846
+* Each row is a set of coordinates with the respective data set that it belongs to.
+
+
+## Exercise 2
+* Plotting x vs y for the Dino Dataset
+* Correlation: -0.06447185
+```{r,collapse=TRUE, tidy=TRUE}
+dino_data <- datasaurus_dozen %>% filter(dataset =="dino")
+ggplot(data=dino_data, mapping=aes(x=x,y=y)) + geom_point()
+cor(dino_data$x, dino_data$y)
+```
+
+
+```{r,collapse=TRUE, tidy=TRUE}
+dino_data %>% summarize(r = cor(x,y))
+```
+
+
+
+
+
+## Exercise 3
+* Plotting x vs y for the Star dataset
+* Correlation:  -0.0629611
+* Observation: Very similar , slightly 'weaker' correlation compared to the dino data set
+```{r,collapse=TRUE, tidy=TRUE}
+star_data <- datasaurus_dozen %>% filter(dataset =="star")
+ggplot(data=star_data, mapping=aes(x=x,y=y)) + geom_point()
+cor(star_data$x, star_data$y)
+```
+
+
+
+
+## Exercise 4
+* Plotting x vs y for Circle Dataset
+* Correlation: -0.06834336
+* Observation: Slightly higher negative correlation compared to the Dino Dataset
+```{r,collapse=TRUE, tidy=TRUE}
+star_data <- datasaurus_dozen %>% filter(dataset =="circle")
+ggplot(data=star_data, mapping=aes(x=x,y=y)) + geom_point()
+cor(star_data$x, star_data$y)
+```
+
+
+## Exercise 5 : Exploring Faceting and Group By
+  *  facet_wrap wraps a 1d sequence of panels into 2d. This is generally a better use of screen space than facet_grid() because most displays are roughly rectangular.
+  
+  
+```{r,collapse=TRUE, tidy=TRUE}
+ggplot(data=datasaurus_dozen, aes(x=x, y=y, color=dataset)) +
+    geom_point() +
+    facet_wrap(~dataset, ncol = 3) + 
+    theme(legend.position = "none" )
+```
+
+## Using GroupBy to generate coefficients
+```{r,collapse=TRUE, tidy=TRUE}
+datasaurus_dozen %>% group_by(dataset) %>% summarise(r = cor(x,y))
+  
+```

@@ -1,0 +1,321 @@
+---
+title: "**Student performance**"
+author: "guilinXue"
+date: "2020/6/13"
+output:
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  tidy = TRUE,
+  warning = FALSE,
+  comment = ' ',
+  message = FALSE,
+  collapse = TRUE,
+  prompt = TRUE,
+  fig.width = 9,
+  fig.height = 8,
+  dpi = 300,
+  highlight = FALSE,
+  cache = FALSE
+  )
+```
+
+### Introduction
+Hi Friends, welcome to my kernel! I have used dplyr and ggplot2 to manipulate and visualise the student performance data. 
+I have then created a random forest to create a simple prediction model. 
+If you find this script useful, please upvote or leave a comment with your feedback, Thanks! 
+
+### Loading data and libraries
+key libraries used include:
+
+ggplot2 - Data visualisation 
+
+dplyr - Data manipulation
+
+kableExtra, xtable - Creating tables
+
+RColorBrewer - Using colours
+
+```{r  warnings = FALSE, message=FALSE} 
+
+Data <- read.csv("StudentsPerformance.csv",header=TRUE)
+library(kableExtra)
+library(xtable)
+library(RColorBrewer)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+### Understanding the data
+The data has eight variables and 1000 observations. The key variables include gender, race/ethnicity, parental level of education,lunch, test preparation course, math score, reading score and writing score.
+
+```{r message= FALSE, warning=FALSE}
+str(Data)
+```
+
+### Exploratory data analysis
+
+1. ***Students By gender***: There are more 518 female students and 482 male students. 
+
+```{r }
+plot1 <- 
+  ggplot() +
+  geom_bar(data = Data, aes(x = Data$gender), width = 0.2, fill = "green") +
+  geom_text(stat='count', data = Data, aes(x = Data$gender, label=..count..), vjust=-0.2) +
+  theme_bw() +
+  xlab("Gender") +
+  ylab("Number of Students") +
+  theme_classic() +
+  ggtitle("Number of Students by Gender") +
+  scale_fill_brewer(type = "qual", palette = 1, direction = 1,
+  aesthetics = "fill") +
+  ylim(0, 600)
+  
+plot1
+
+```
+
+2. ***Students By race***: There are 319 students in group C, 262 students in group D while there are only 89 students in group A.
+
+```{r }
+plot2 <- ggplot() +
+  geom_bar(data = Data, aes(x = Data$race.ethnicity), width = 0.6, fill = "green") +
+  geom_text(data = Data, aes(x = Data$race.ethnicity, label = ..count..), stat = "count", vjust = -0.2) +
+  theme_bw() +
+  xlab("Race/Ethnicity") +
+  ylab("Number of Students") +
+  theme(
+    text = element_text(family = "Tahoma")
+  ) +
+  theme_classic()+
+  scale_fill_brewer(type = "qual", palette = 1, direction = 1,
+  aesthetics = "fill") +
+  ggtitle("Number of Students by Race/Ethnicity")
+plot2
+
+```
+
+3. ***Distribution of scores***
+152 students scored between 65 - 70 marks in maths. 154 students scored in the same bracket in writing. 148 students scored between 70 - 75 marks in reading.  
+
+
+```{r message=FALSE}
+Data_gather <- Data %>%
+  mutate(StudentID = row_number()) %>%
+  gather(key = "subject", value = "score", math.score:writing.score)
+  
+  Data_gather %>%
+  ggplot(aes(x = score)) +
+  geom_histogram(bins = 20, colour = "green", fill = "white")  +
+  facet_grid(subject ~.) +
+  theme_bw() +
+  theme_classic() +
+  scale_x_continuous(limits = c(0,100), breaks = seq(0, 100, 10)) +
+  #geom_label(aes(label = ..count..), stat = "count", y = 150, size = 2) +
+  stat_bin(bins= 20, geom="text", aes(label=..count..) , 
+vjust = -1) +
+  ylim(0, 200)
+
+```
+
+### Preparation courses 
+
+1. ***Completion***: Majority of students do not complete preparation courses. Proportion of students completing preparation course is highest in group E. 
+
+
+```{r message= FALSE, warning=FALSE}
+plot3 <- ggplot() +
+  geom_bar(data = Data, aes(x = Data$test.preparation.course), width = 0.6, fill = "green") +
+  geom_text(data = Data, aes(x = Data$test.preparation.course, label = ..count..), stat = "count", vjust = -0.2) +
+ # geom_bar(data = Data, aes(x = Data$test.preparation.course, y = race.ethnicity), fill = "#bcd4e6", width = 0.6) +
+  facet_grid(. ~race.ethnicity) +
+  theme_bw() +
+  xlab("Preparation course") +
+  ylab("Number of Students") +
+  theme(
+    text = element_text(family = "Tahoma") ) + 
+  theme_classic() +
+  ggtitle("Number of Students who completed Preparation course by Race/Ethnicity") +
+  scale_fill_brewer(type = "qual", palette = 1, direction = 1,
+  aesthetics = "fill")
+
+plot3
+```
+
+2. **Impact of course**: As we see the that the average of the scores of students who completed preparation course is higher than the average of scores of the students who did not complete the course.
+ 
+```{r message= FALSE, warning=FALSE}
+plot4 <- ggplot(data=Data_gather, aes(x=Data_gather$test.preparation.course, y=Data_gather$score, 
+                             fill=Data_gather$test.preparation.course)) + 
+  geom_boxplot() +
+  stat_summary(fun.y=mean, colour="darkred", geom="point", 
+               shape=18, size=3,show_guide = FALSE) +
+  theme_bw() +
+  theme_classic() +
+  xlab("Preparation Course") +
+  ylab("Average Score") +
+  theme(
+    text = element_text(family = "Tahoma"),
+    legend.title = element_blank()) +
+  scale_fill_brewer(type = "qual", palette = 1, direction = 1,
+  aesthetics = "fill")
+
+plot4
+
+```
+
+### Scores by race/ethnicity
+
+Average scores are highest in the group E.
+
+```{r message= FALSE, warning=FALSE}
+plot5 <- ggplot(data=Data_gather, aes(x=Data_gather$race.ethnicity, y=Data_gather$score, 
+                             fill=Data_gather$race.ethnicity)) + 
+  geom_boxplot() + 
+    theme(
+    text = element_text(family = "Tahoma"),
+    axis.text.x = element_blank(),
+    legend.title = element_blank()
+    ) +
+
+  stat_summary(fun.y=mean, colour="darkred", geom="point", 
+               shape=18, size=3,show_guide = FALSE) +
+  facet_grid(. ~ subject ) +
+  theme_bw() +
+  theme_classic() +
+  scale_fill_brewer(type = "qual", palette = 1, direction = 1,
+  aesthetics = "fill") +
+  xlab("Race/ethnicity") +
+  ylab("Score")
+
+plot5
+
+
+```
+
+### Scores By gender
+
+Female students have high average scores in reading and writing, while male students fare better in maths.
+
+
+```{r message= FALSE, warning=FALSE}
+
+plot6 <- ggplot(data=Data_gather, aes(x=Data_gather$gender, y=Data_gather$score, 
+                             fill=Data_gather$gender)) + 
+  geom_boxplot() +
+  stat_summary(fun.y=mean, colour="darkred", geom="point", 
+               shape=18, size=3,show_guide = FALSE) +
+  facet_grid(. ~ subject ) +
+  theme_bw() +
+  theme_classic() +
+  theme(legend.title = element_blank()) +
+  xlab("Gender") +
+  ylab("Score") +
+  scale_fill_brewer(type = "qual", palette = 1, direction = 1,
+  aesthetics = "fill")
+
+plot6
+```
+
+### Impact of the type of lunch
+
+```{r message= FALSE, warning=FALSE}
+Data_gather_mean <- Data_gather %>%
+  group_by(StudentID) %>%
+  summarise(mean = mean(score))
+
+
+table1 <- merge(Data_gather_mean, Data_gather[,c(1:6)], by = "StudentID") %>%
+  distinct(StudentID, .keep_all = TRUE) %>%
+  group_by(race.ethnicity, lunch) %>%
+  summarise(avg.score = mean(mean, na.rm = TRUE))
+
+kable(table1)
+
+```
+
+### Correlation between reading and writing score
+
+There is a strong correlation between reading scores and the writing scores with a coefficient of 0.95.
+
+```{r message= FALSE, warning=FALSE}
+ggplot() +
+  geom_point(data = Data, aes(x = Data$math.score, y = Data$reading.score)) +
+  theme_bw() +
+  theme_classic() +
+  xlab("Math Score") +
+  ylab("Reading Score")
+
+ggplot() +
+  geom_point(data = Data, aes(x = Data$writing.score, y = Data$reading.score)) +
+    theme_bw() +
+  theme_classic() +
+  xlab("Writing Score") +
+  ylab("Reading Score")
+
+
+```
+
+```{r message= FALSE, warning=FALSE}
+
+cor.test(Data$math.score, Data$reading.score)
+cor.test(Data$math.score, Data$writing.score)
+cor.test(Data$writing.score, Data$reading.score)
+
+```
+
+### Prediction 
+ 
+We created a simple prediction model, to see if we predict whether the student had a test preparation course or not based on all other variables. 
+
+```{r message= FALSE, warning=FALSE}
+library(randomForest)
+library(caret)
+Data1 <- Data
+
+Data1$gender <- as.numeric(factor(Data1$gender, levels = unique(Data1$gender)))
+Data1$race.ethnicity <- as.numeric(factor(Data1$race.ethnicity, levels = unique(Data1$race.ethnicity)))
+Data1$parental.level.of.education <- as.numeric(factor(Data1$parental.level.of.education , levels = unique(Data1$parental.level.of.education)))
+Data1$lunch  <- as.numeric(factor(Data1$lunch, levels = unique(Data1$lunch)))
+Data1$test.preparation.course <- as.numeric(factor(Data1$test.preparation.course, levels = unique(Data1$test.preparation.course)))
+Data1$test.preparation.course = as.factor(Data1$test.preparation.course)
+
+```
+
+Let's divide the set into training and test set with 70% of the records in the training set and the remaining in the test set. 
+
+```{r message= FALSE, warning=FALSE}
+set.seed(125)
+train <- sample(nrow(Data1), 0.7*nrow(Data1), replace = FALSE)
+
+TrainingSet <- Data1[train,]
+TestSet <- Data1[-train,]
+
+str(TrainingSet)
+str(TestSet)
+
+```
+
+Here is a simple random forest model that has an accuracy of 71.67%.
+
+```{r message= FALSE, warning=FALSE}
+model1 <- randomForest(test.preparation.course ~ ., data = TrainingSet, importance = TRUE, ntree = 500, mtry = 6)
+model1
+
+importance(model1)
+varImpPlot(model1)
+
+PredTest <- predict(model1, TestSet, type = "class")
+mean(PredTest == TestSet$test.preparation.course)
+
+
+```
+
+If you got to this point, then don't forget to leave a comment. 
+Thanks!
+

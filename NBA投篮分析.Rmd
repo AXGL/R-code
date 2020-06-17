@@ -1,0 +1,57 @@
+---
+title: "<center>NBA投篮分析</center>"
+date: "2020/5/17"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  fig.height = 9,#定制图片大小
+  fig.width = 9,
+  tidy = TRUE,
+  warning = FALSE,
+  comment = ' ',
+  message = FALSE,
+  collapse = TRUE,
+  prompt = TRUE
+)
+```
+
+## 一、输入和查看数据
+```{r}
+nba_shots <- read.csv("C:/Users/Administrator.SC-201809091908/Documents/shot_logs.csv/shot_logs.csv")
+dim(nba_shots)
+ knitr::kable(str(nba_shots)) #数据结构
+library(dplyr)
+library(ggplot2)
+```
+
+## 二、进攻者出手的距离
+```{r}
+ggplot(nba_shots,aes(SHOT_DIST))+geom_histogram(data =nba_shots,bins = 30,show.legend = TRUE,binwidth = 1)
+```
+## 三、防守人员的位置
+```{r}
+ggplot(nba_shots,aes(CLOSE_DEF_DIST))+geom_histogram()+ xlim(0,20)
+```
+
+## 四、防守情况与得分情况
+```{r}
+ggplot(nba_shots,aes(x=SHOT_DIST, y=CLOSE_DEF_DIST))+#shot-result是得分
+  geom_point(aes(color=factor(SHOT_RESULT)),show.legend = TRUE)+ 
+  geom_vline(xintercept=c(15,22),color="red")#15和22分别是罚球线距离和三分线距离，这里是做两条蓝线观察结果
+```
+
+## 五、运球次数和接触球时间
+```{r}
+ggplot(nba_shots,aes(DRIBBLES,TOUCH_TIME))+#运球次数和接触球时间
+  geom_point(aes(color=factor(SHOT_RESULT)))+ylim(0,30)
+```
+
+
+## 六、主客场胜利场数
+```{r}
+wins<-nba_shots %>% group_by(GAME_ID,LOCATION) %>% filter(W=='W',FGM==1)
+ggplot(data=wins,aes(LOCATION,fill=factor(W)))+geom_bar()
+```

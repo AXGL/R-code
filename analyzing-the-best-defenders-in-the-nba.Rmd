@@ -1,0 +1,375 @@
+---
+title: "Using Shot Data to Analyze the Best Defenders in the NBA"
+output: 
+    html_document:
+        code_folding: show
+        theme: cosmo
+        toc: yes
+        toc_depth: 4
+        toc_float: no
+---
+##Objective
+
+This dataset contains data on over 128,000 shots taken during the 2014-15 NBA season. I want to use this data to analyze the effectiveness of different defenders using a number of different factors.
+
+```{r}
+library(ggplot2)
+library(ggrepel)
+ShotData = read.csv(file = "C:/Users/Administrator.SC-201809091908/Documents/shot_logs.csv/shot_logs.csv")
+```
+
+First let's load and look at the data, to see if there are any issues or missing values we need to clean up.
+
+#Cleaning the Data
+```{r}
+summary(ShotData)
+```
+
+We see that some Touch Time rows have negative values, few enough to be discarded
+```{r}
+ShotData = ShotData[ShotData$TOUCH_TIME > 0,]
+```
+
+Shot Result contains the same information as FGM, so one of the two should be removed. In this case, it is easier to do calculations using the numeric FGM category, so I will drop Shot Result.
+```{r}
+ShotData = ShotData[,-14]
+
+summary(ShotData)
+```
+
+A few of the players' names are misspelled, so we'll just quickly fix that
+```{r}
+ShotData$player_name = as.character(ShotData$player_name)
+ShotData$player_name[ShotData$player_name == 'danilo gallinai'] = 'danilo gallinari'
+ShotData$player_name[ShotData$player_name == 'mnta ellis'] = 'monta ellis'
+ShotData$player_name = factor(ShotData$player_name)
+```
+
+
+#Adjusting Existing Variables and Adding New Ones
+
+##Game Clock
+
+First we must convert the variable for Game Clock into a numeric vector, so that we can work with it later on for determining "Clutch" scenarios.
+```{r}
+ShotData$GAME_CLOCK = as.character(ShotData$GAME_CLOCK)
+ShotData$GAME_CLOCK = gsub(":", ".", ShotData$GAME_CLOCK)
+ShotData$GAME_CLOCK = as.numeric(ShotData$GAME_CLOCK)
+```
+
+##Adding a Variable for "Clutch" Situations
+Now that this is done, we create a new column that uses the Game Clock data along with the data for Period and Final Margin to determine whether or not a shot was taken during a "Clutch" situation. For our purposes, I will define "Clutch" as a shot taken during the potential last minute  of game time, where the final margin of victory for the game ended up being less than or equal to 5 points. Any shot taken during the last minute of a 4th, or later, quarter with these characteristics will be marked with a "Yes" factor for Clutch.
+
+```{r}
+ShotData$Clutch = "No"
+ShotData$Clutch[ShotData$GAME_CLOCK <= 1 & ShotData$PERIOD >= 4 & abs(ShotData$FINAL_MARGIN) <= 5] = "Yes"
+ShotData$Clutch = factor(ShotData$Clutch)
+```
+
+##Adding a Variable for Shot Type
+
+Now I'd like to amend the data set with a column that tries to classify the types of shots taken into types of shots, based on their location,number of dribbles, and distance from the rim.
+
+```{r}
+ShotData$SHOT_TYPE[ShotData$DRIBBLES <= 1 & ShotData$SHOT_DIST  > 4] = 'Catch and Shoot'
+ShotData$SHOT_TYPE[ShotData$DRIBBLES <= 1 & ShotData$SHOT_DIST <= 4] = 'Cut'
+ShotData$SHOT_TYPE[ShotData$DRIBBLES > 1 & ShotData$SHOT_DIST  <= 4] = 'Drive'
+ShotData$SHOT_TYPE[ShotData$DRIBBLES > 4] = 'ISO/Post up'
+ShotData$SHOT_TYPE[ShotData$DRIBBLES > 20] = 'Long ISO'
+ShotData$SHOT_TYPE[ShotData$DRIBBLES <=1 & ShotData$PTS_TYPE == 3] = 'Spot Up Three'
+ShotData$SHOT_TYPE = factor(ShotData$SHOT_TYPE)
+
+summary(ShotData$SHOT_TYPE)
+```
+
+##Adding Shot Quality
+
+On a similar note, we'll add a factor column that checks whether or not a shot was open, wide open, contested, or tightly contested, based on how close the nearest defender was when the shot was taken.
+
+```{r}
+ShotData$SHOT_QUALITY = 'Open'
+ShotData$SHOT_QUALITY[ShotData$CLOSE_DEF_DIST <= 2] = 'Tightly Contested'
+ShotData$SHOT_QUALITY[ShotData$CLOSE_DEF_DIST <= 3.5] = 'Contested'
+ShotData$SHOT_QUALITY[ShotData$CLOSE_DEF_DIST > 6] = 'Wide Open'
+ShotData$SHOT_QUALITY = factor(ShotData$SHOT_QUALITY)
+
+summary(ShotData$SHOT_QUALITY)
+```
+
+Quickly to check whether some assumptions are correct, we'll look at the difference in FG% and points per possession on three-pointers that are open and contested. If our data is correct, there should be a noticeable difference in the efficiency of these kinds of shots.
+
+```{r}
+Open3PPP = sum(ShotData$PTS[ShotData$PTS_TYPE == 3 & ShotData$CLOSE_DEF_DIST > 3.5])/length(ShotData$PTS[ShotData$PTS_TYPE == 3 & ShotData$CLOSE_DEF_DIST > 3.5])
+Open3FG = Open3PPP/3
+Cont3PPP = sum(ShotData$PTS[ShotData$PTS_TYPE == 3 & ShotData$CLOSE_DEF_DIST <= 3.5])/length(ShotData$PTS[ShotData$PTS_TYPE == 3 & ShotData$CLOSE_DEF_DIST <= 3.5])
+Cont3FG = Cont3PPP/3
+WdOpen3PPP = sum(ShotData$PTS[ShotData$PTS_TYPE == 3 & ShotData$CLOSE_DEF_DIST > 6])/length(ShotData$PTS[ShotData$PTS_TYPE == 3 & ShotData$CLOSE_DEF_DIST > 6])
+WdOpen3FG = WdOpen3PPP/3
+```
+```{r}
+Open3PPP
+
+Open3FG
+```
+```{r}
+Cont3PPP
+
+Cont3FG
+```
+
+Looks like our assumptions are correct, with contested three showing a much lower PPP and FG% than their open counterparts. 
+
+Now to the bulk of the study, we will create a new dataframe to look specifically at the closest defenders of each shot and use that data to find who are the best defenders in the league. 
+
+#Who is the Best Defender?
+
+First we will create a set of vectors that represent different elements of a defender's job. First we have opponent FG%, then opponent points per possession, then average distance from the shooter when contesting a shot. Finally we will measure the number of shots each defender contested, by our definition, the average distance from the rim when defending a shot, and the total number of shots each defender was the closest defender for during the season.
+
+```{r}
+DefenderList = levels(ShotData$CLOSEST_DEFENDER)
+
+OppFG= rep(1, 473)
+OppPPP = rep(1, 473)
+OppDist = rep(1, 473)
+ShotsCont = rep(1, 473)
+RimDist = rep(1, 473)
+ShotsNear = rep(1, 473)
+
+FGM = ShotData$FGM
+PTS = ShotData$PTS
+CLOSE_DEF_DIST = ShotData$CLOSE_DEF_DIST
+SHOT_DIST = ShotData$SHOT_DIST
+CLOSEST_DEFENDER = ShotData$CLOSEST_DEFENDER
+
+
+for (i in 1:473) {
+  OppFG[i] = sum(FGM[CLOSEST_DEFENDER == DefenderList[i]])/length(FGM[ShotData$CLOSEST_DEFENDER == DefenderList[i]])
+  OppPPP[i] = sum(PTS[CLOSEST_DEFENDER == DefenderList[i]])/length(FGM[ShotData$CLOSEST_DEFENDER == DefenderList[i]])
+  OppDist[i] = sum(CLOSE_DEF_DIST[CLOSEST_DEFENDER == DefenderList[i]])/length(FGM[CLOSEST_DEFENDER == DefenderList[i]])
+  ShotsCont[i] = length(FGM[CLOSEST_DEFENDER == DefenderList[i] & CLOSE_DEF_DIST <= 3.5])
+  RimDist[i] = sum(SHOT_DIST[CLOSEST_DEFENDER == DefenderList[i]])/length(FGM[CLOSEST_DEFENDER == DefenderList[i]])
+  ShotsNear[i] = length(FGM[CLOSEST_DEFENDER == DefenderList[i]])
+}
+```
+
+Now that we have created these six variable vectors, we can arrange them into a dataframe to analyze them.
+
+```{r}
+DefDF = data.frame(DefenderList, OppFG, OppPPP, OppDist, ShotsCont, RimDist, ShotsNear)
+
+summary(DefDF)
+```
+
+#Analyzing the New Dataframe
+
+To examine the data, and determine if there are any outliers, let's first look at the distribution of opponent FG%
+
+```{r}
+ggplot(DefDF, aes(x = OppFG)) + geom_density()
+```
+
+It looks fairly normal, but it has some clear outliers on either end. Let's examine those.
+
+```{r}
+DefDF[DefDF$OppFG < .1 | DefDF$OppFG > .90,]
+```
+
+##Cleaning the New Dataframe
+
+So we see about 10 players who have contested 2 or fewer shots in the season. It should be safe to leave players like these out of the dataframe. Let's remove any players who have contested (by our definition) 20 or fewer shots all season.
+
+```{r}
+DefDF = DefDF[DefDF$ShotsCont > 20,]
+```
+
+To make sure this achieved our goal:
+```{r}
+ggplot(DefDF, aes(x = OppFG)) + geom_density()
+```
+
+Looks much more normal, with some potential outliers still remaining. This is good enough to work from.
+```{r}
+summary(DefDF$ShotsCont)
+```
+
+##Narrowing Down the Field
+Let's look at the top defenders who've defended 150 or more shots by our definition, to determine who among them are the elite.
+```{r}
+ggplot(DefDF[DefDF$ShotsCont >= 150,], aes(x = OppFG)) + geom_density()
+```
+
+##Analyzing by Opponent Field Goal Percentage
+```{r}
+DefDF[DefDF$ShotsCont >= 150 & DefDF$OppFG <= .41,]$DefenderList
+```
+
+```{r FGplot}
+ggplot(data = DefDF[DefDF$ShotsCont >= 150 & DefDF$OppFG <= .41,],
+       aes(x = OppFG, y = OppPPP)) +
+  geom_point(colour = "black", size = 2) +
+  geom_point(aes(colour = DefenderList)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_text(aes(label = DefenderList), size = 3, vjust = 0, check_overlap = TRUE) +
+  guides(colour = FALSE) +
+  labs(x = "Opponent Field Goal Percentage", y = "Opponent Points per Possesion")
+```
+
+This gives us the top 15 or so for opponent FG% for defenders who contested 150 or more shots. The list contains mostly players known for their defensive prowess, like Andrew Bogut or Rudy Gobert, but the list also contains players considered average to below-average defensive players in Monta Ellis and Steph Curry. Plotting the two shows a clear correlation between the two statistics, but a great deal of variation still. 
+
+To better understand defensive contribution, we must turn towards opponent points per possession, which regularizes the data for two and three point shots, helping adjust for players like Ellis or Teague who allow lower field goal percentage but not necessarily lower points per shot.
+
+```{r}
+ggplot(DefDF[DefDF$ShotsCont >= 150,], aes(x = OppPPP)) + geom_density()
+
+DefDF[DefDF$ShotsCont >= 150 & DefDF$OppPPP <= .9,]$DefenderList
+```
+
+Regularizing for three and two pointers, we get a list of 10 players who allow fewer than .9 points per possession on shots they contest, a figure lower than the league-worst offense of each of the last 8 years. But among these players, a few stand out even among the elite. We need further analysis to fully understand who the best of the best are on the defensive side of the ball.
+
+##Creating the Elite Defender Dataframe
+
+```{r}
+EliteDef = DefDF[DefDF$ShotsCont >= 150 & DefDF$OppPPP <= .92,]
+EliteDef$DefList = as.character(DefDF$DefenderList[DefDF$ShotsCont >= 150 & DefDF$OppPPP <= .92])
+EliteDef$DefList = factor(EliteDef$DefList)
+```
+
+Let's graph the top 15 or so elite defenders, looking at a number of key factors.
+
+First, let's look at opponent points per possession by the number of shots a defender was the closest defender to over the course of the season.
+
+###Shots Defended vs Points per Possession
+```{r}
+ggplot(EliteDef, aes(x = ShotsNear, y = OppPPP)) + 
+  geom_point(colour = "black", size = 2) +
+  geom_point(aes(colour = DefList)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_text(aes(label = DefenderList), size = 3, vjust = 0, check_overlap = TRUE) +
+  guides(colour = FALSE) +
+  labs(x = "Number of Shots Defended", y = "Opponent Points per Possesion")
+```
+
+Looking at this, we see a moderate correlation between the number of shots a defender was near, and a higher a average opponent PPP. The players lower and to the left are therefore particularly noteworthy, as they have been near more shots and allowed a lower than average PPP for those shots. Elite defenders by this metric are Andrew Bogut, Rudy Gobert, Draymond Green, Anthony Davis, Cory Joseph, Serge Ibaka, Andre Roberson, and Bismack Biyombo.
+
+Now let's look at opponent points per possession versus the average distance to the rim of the shots taken.
+
+###Average Shots Distance vs Points per Possession
+```{r}
+ggplot(EliteDef, aes(x = RimDist, y = OppPPP)) + 
+  geom_point(colour = "black", size = 2) +
+  geom_point(aes(colour = DefList)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_text(aes(label = DefenderList), size = 3, vjust = 0, check_overlap = TRUE) +
+  guides(colour = FALSE) +
+  labs(x = "Average Distance from the Rim", y = "Opponent Points per Possession")
+```
+
+This graph demonstrates an even stronger correlation between distance from the rim and higher opponent PPP. Once again, elite defenders by this metric are Rudy Gobert, Draymond Green, Anthony Davis, Cory Joseph, and Roy Hibbert. Notably, this list is exactly the same as with the previous graph, with the exception of Serge Ibaka, who remains near the cut-off point in this graph. Very interesting is the fact that Stephen Curry sits very near the elite cut-off in this graph, and in the neighborhood of elite on the previous graph. Knowing that Curry is considered by many to be an average at best defender, these results seem to indicate that conventional wisdom strays far from the truth in the case of Curry.
+
+Finally, lets analyze how length might come into play for defenders, by mapping the opponent points per possession against the average distance each defender is from a shooter when they are the closest defender. In theory, players with length should be able to separate themselves from the pack and contest shots from a greater distance.
+
+###Distance of Defender vs Points per Possession
+```{r}
+ggplot(EliteDef, aes(x = OppDist, y = OppPPP)) + 
+  geom_point(colour = "black", size = 2) +
+  geom_point(aes(colour = DefList)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_text(aes(label = DefenderList), size = 3, vjust = 0, check_overlap = TRUE) +
+  guides(colour = FALSE) +
+  labs(x = "Average Distance of Contest", y = "Opponent Points per Possession")
+```
+
+Once again, we see the same set of players emerging from the pack, with the addition of Joakim Noah. Players like Andre Roberson and Anthony Davis, known for their length, do particularly well in the category, defending opponents at a high level even with an average distance of contesting of around 4 feet.
+
+#Rim Protection
+
+Our final analysis will look at an aspect of defending that has become increasingly emphasized in the last few years, protecting the rim. Specifically, this will look at defenders who contest a majority of shots within 4 feet of the rim.
+
+##Creating the Rim Protection Dataframe
+
+For this analysis, we create a new dataframe identical to our DefDF from earlier, but with the added stipulation that only shots taken within 4 feet of the rim are used in its creation. 
+
+```{r}
+OppFGR= rep(1, 473)
+OppPPPR = rep(1, 473)
+OppDistR = rep(1, 473)
+ShotsContR = rep(1, 473)
+RimDistR = rep(1, 473)
+ShotsNearR = rep(1, 473)
+
+for (i in 1:473) {
+  OppFGR[i] = sum(FGM[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])/length(FGM[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])
+  OppPPPR[i] = sum(PTS[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])/length(FGM[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])
+  OppDistR[i] = sum(CLOSE_DEF_DIST[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])/length(FGM[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])
+  ShotsContR[i] = length(FGM[CLOSEST_DEFENDER == DefenderList[i] & CLOSE_DEF_DIST <= 3.5 & SHOT_DIST <= 4])
+  RimDistR[i] = sum(SHOT_DIST[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])/length(FGM[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])
+  ShotsNearR[i] = length(FGM[CLOSEST_DEFENDER == DefenderList[i] & SHOT_DIST <= 4])
+}
+```
+
+Like before, we now combine these vectors into a dataframe for further analysis.
+
+```{r RimProtDT}
+RimProtDF = data.frame(DefenderList, OppFGR, OppPPPR, OppDistR, ShotsContR, RimDistR, ShotsNearR)
+```
+
+##Removing Outliers
+
+```{r}
+ggplot(RimProtDF, aes(x = OppFGR)) + geom_density()
+```
+
+Looking at the density graph for opponent field goal percentage allowed, we see that their are once again a number of outliers, as well as some players who have contested no shots within 4 feet of the rim at all. We can safely remove these players.
+
+```{r}
+RimProtDF = RimProtDF[RimProtDF$ShotsContR > 10,]
+
+ggplot(RimProtDF, aes(x = OppFGR)) + geom_density()
+```
+
+##Finding Elite Rim Protectors
+
+First let's look at the summary for the number of shots contested near the rim per player to determine how many a player should have to be considered a "prolific" rim protector.
+
+```{r Prolific Rim Protector}
+summary(RimProtDF$ShotsContR)
+
+RimProtDF$DefenderList[RimProtDF$ShotsContR > 140]
+```
+
+It appears that setting the cut-off at 140 shots defended at the rim gives us the 22 most prolific rim protectors. Now let's analyze this group of players to see which defenders stand out for their effectiveness. First we make a new dataframe for these prolific rim protectors, and refactor the DefenderList variable to only have levels for these players.
+
+```{r EliteRimPDF}
+EliteRimPDF = RimProtDF[RimProtDF$ShotsContR > 140,]
+EliteRimPDF$DefenderList = factor(as.character(EliteRimPDF$DefenderList))
+``` 
+
+##Defensive Efficiency vs Volume of Shots Defended
+
+This graph looks at the relationship between the number of shots a player defended near the rim, versus the average field goal percentage that defender allowed on those shots. Ideally, a player defends a large volume of shots near the rim, and does so at a high efficiency. Therefore, the best rim protectors will appear down and to the right on this graph. 
+```{r RimProt FG}
+ggplot(EliteRimPDF,
+       aes(x = ShotsNearR, y = OppFGR)) + 
+  geom_point(colour = "black", size = 2) +
+  geom_point(aes(colour = DefenderList)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_text(aes(label = DefenderList), size = 3, vjust = 0, check_overlap = TRUE) +
+  guides(colour = FALSE) +
+  labs(x = "Shots Defended Near the Rim", y = "Opponent FG% at the Rim")
+```
+
+As expected, we see a positive correlation between number of shots defended at the rim and a higher opponent field goal percentage. One player who stands out as elite among his peers is Serge Ibaka, who defended nearly 240 shots at the rim, and maintained a opposing field goal percentage of under 50%. This means that Ibaka allowed less than one point on average on shots within 4 feet of the rim, an incredible number only surpassed by Rudy Gobert, another elite rim protector who defended a comparably low 168 shots near the rim. Both players stand out as exceptional defenders, but the volume of shots that Ibaka defended mark him as the top rim protector by this comparison.
+
+Other players who stand out as top-tier rim protectors, if not at the level of Ibaka or Gobert, are Pau Gasol, Tyson Chandler, Tyler Zeller, Tim Duncan, Nerlens Noel, Marcin Gortat, and Demarcus Cousins. Once again, this list mostly matches up with public perception, with a few surprises.
+
+Players such as Tyler Zeller, Demarcus Cousins, and particularly Pau Gasol are not perceived as or known for being elite rim protectors, but all three of them appear by this metric to be as or more effective at protecting the rim as players like Marc Gasol and Deandre Jordan, two players considered to be Defensive Player of the Year caliber defenders. While this may be the result of a somewhat small sample size in the case of Cousins or Zeller, the volume and efficiency with which Pau Gasol protects the rim cannot be denied.
+
+#Conclusions
+
+We've seen that, in many ways, the conventional wisdom lines up with our analysis of the most effective defenders in the NBA, but there are some more surprising results. Stephen Curry, a player considered to be average at best on defense, appears nearly elite by our analysis, and a player like Andre Roberson, a talented defender with little name recognition, appears elite even by the standards of the other top ten defenders in the league. Also interestingly, Pau Gasol appears to be an elite rim protector despite the perception by many that he is a poor defender. 
+
+Longer players, like Anthony Davis, Andre Roberson, Draymond Green, and Rudy Gobert seem to have a clear advantage on the defensive side of the ball, with the ability to contest shots from further away, and jump back to contest on plays they may have gotten lost on.
+
+#Going From Here
+
+In the future, I would like to explore which defenders perform better in "clutch" situations, and look at the expected points per shot of different kinds of shots, even building a predictive model to guess whether a shot will be made or not.

@@ -1,0 +1,91 @@
+---
+title: "Rnarkdown使用方法"
+author: "XGL"
+date: "2020/5/16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars, message=FALSE, warning=FALSE, paged.print=FALSE}
+#lubridate 是用来处理时间数据的 R 软件包
+library("tidyverse")#hadly vickim的集成包，做数据科学用的包的集合
+library("lubridate")
+library(gganimate)
+require(nCov2019)
+#load_nCov2019可以使用历史数据，get_nCov2019可以加载实时数据
+x<-load_nCov2019()
+#这里的ymd(),就是用的lubridate的函数，可以识别日期格式的分隔符
+a<-summary(x)[,c(1,3,4)]
+a %>%
+  filter(time == ymd('20200130'))#fiter是个数据框筛选函数，类似于subset
+a %>%
+  filter(time == ymd('20200514')) %>%#fill适用于填充颜色，colour适用于描边颜色
+  ggplot(aes(x=province, y=cum_confirm, fill=province)) +#事实ggplot这一行是还没有做出实质的图形，更像是一个全局设置（色彩，映射关系）
+  geom_bar(stat='identity', position='identity')#真正起作用画图的类型的，是要看这一行，geom_XXX，来确定是柱状图还是扇形图等等
+a %>%                                           #例如这里就是绘制柱状图，柱的高度按照 y 值设置，对应 x 上每一个取值（省份），分别绘制一根柱。      
+  ggplot(aes(x=time, y=cum_confirm, color=province)) +
+  geom_point() + geom_line()#这里把时间映射到x轴，y则是感染人数，颜色分类由省份区别，geom_xxx确认图类型，图层概念，叠加即可                                       
+a %>%
+  ggplot(aes(x=province, y=cum_confirm, fill=province)) +
+  geom_bar(stat='identity', position='identity') +
+  transition_time(time)#这层把时间这个维度通过动态表达了出来
+b<-a %>%
+  ggplot(aes(x=province, y=cum_confirm, fill=province)) +
+  geom_bar(stat='identity', position='identity',width = 1) +
+  theme(panel.grid.major = element_blank(),#这一行是用来去除网格线
+        panel.grid.minor = element_blank())
+ggsave("b.png",width = 30,height = 54,units = "cm",dpi = 300)
+
+b1<-b+transition_time(time) +
+ labs(title='{frame_time}')#这一层添加了动态的标题。ggplot 的 labs() 函数，这个函数负责图片的标记设定，除了标题以外，你还可以设置横纵轴说明等内容。
+animate(b1, height = 1600, width =900,duration = 10,fps = 30)#!这个操作可以控制画GIF图的大小,帧率，持续时间
+anim_save("Gapminder_example.gif")
+#?查找问题是个好习惯
+
+
+
+#广东地区
+a<-(x['广东',])[c(1,4,5)]
+a %>%
+  filter(time == ymd('20200130'))#fiter是个数据框筛选函数，类似于subset
+  a %>%
+  filter(time == ymd('20200514')) %>%#fill适用于填充颜色，colour适用于描边颜色
+  ggplot(aes(x=city, y=cum_confirm, fill=city)) +  #事实ggplot这一行是还没有做出实质的图形，更像是一个全局设置（色彩，映射关系）
+  geom_bar(stat='identity', position='identity') #真正起作用画图的类型的，是要看这一行，geom_XXX，来确定是柱状图还是扇形图等等
+
+  a %>%                                           #例如这里就是绘制柱状图，柱的高度按照 y 值设置，对应 x 上每一个取值（省份），分别绘制一根柱。      
+  ggplot(aes(x=time, y=cum_confirm, color=city)) +
+  geom_point() + geom_line()+#这里把时间映射到x轴，y则是感染人数，颜色分类由省份区别，geom_xxx确认图类型，图层概念，叠加即可                                       
+  theme(panel.grid.major = element_blank(),#这一行是用来去除网格线
+          panel.grid.minor = element_blank())
+d<-a %>%
+  ggplot(aes(x=city, y=cum_confirm, fill=city)) +
+  geom_bar(stat='identity', position='identity',width = 1)+
+  theme(panel.grid.major = element_blank(),#这一行是用来去除网格线
+      panel.grid.minor = element_blank())
+d1<-d+transition_time(time) + #这层把时间这个维度通过动态表达了出来
+    labs(title = '{frame_time}')
+animate(d1,height=1600,width=900,duration = 10,fps = 30)
+anim_save("ggplot.gif")
+?animate
+  
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

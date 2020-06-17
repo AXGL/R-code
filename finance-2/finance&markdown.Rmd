@@ -1,0 +1,60 @@
+---
+title: "**Analysis of China's airline liquidity**"
+author: "guilinXue"
+date: "2020/6/13"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#  Introduction
+
+Liquidity risk refers to the possibility that an company's debt and cash-out obligations cannot be performed normally due to the inability of the capital supply to meet the capital needs.  The balance sheet is a report that reflects the financial status of a company on a specific date, and has an important reference role in the analysis of liquidity risk.  Therefore, the composition of assets, liabilities, and owner's equity in assets and liabilities can be used to analyze the liquidity risk of an enterprise. There are three main methods: total analysis, ratio analysis, and leverage analysis.In this article, I will analyze the liquidity situation of seven airlines in China, and explore whether these companies will have a liquidity crisis.
+
+# Liquidity 
+
+* **Current ratio** : CR = CA/CL  (The ratio of current assets to current liabilities)
+
+
+* **Quick ratio** : QR = (CA-INV)/CL (The ratio of current assets minus inventories to current liabilities)
+
+
+## Current ratio
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+library(readxl)
+library(dplyr)
+library(kableExtra)
+table1 <- read_excel('C:/Users/Administrator.SC-201809091908/Desktop/sheet1.xlsx')
+knitr::kable(table1[,-c(8,9)], format = "latex", booktabs = TRUE,row.names = FALSE) %>%
+          kable_styling(latex_options = "scale_down")
+
+```
+
+The Current ratio can evaluate the ability of listed companies to convert liquid assets into cash.  A high current ratio indicates that the company’s current assets have a strong liquidity and there is little pressure on short-term debt service.  Generally speaking, keeping the current ratio around 2 is more appropriate to ensure the normal operation of the enterprise.  You can see from Table 1.  The current ratio of the seven major listed airlines in my country is much lower than 2. Among them, the current ratio of China Airlines and Spring Airlines is generally higher than that of several other airlines.  The worst is China Southern Airlines, with a current ratio as low as 0.17. In addition, the current ratio of the remaining airlines is only between 0.1-0.4. From an overall perspective, the current liquidity ratios of these listed airlines in my country are too low, indicating that their solvency is very weak and there are major hidden dangers.
+
+
+
+## Quick ratio
+
+```{r echo=FALSE,warning=FALSE,message=FALSE}
+library(readxl)
+library(dplyr)
+library(kableExtra)
+table1 <- read_excel('C:/Users/Administrator.SC-201809091908/Desktop/sheet1.xlsx')
+knitr::kable(table1[,-c(7,9)], format = "latex", booktabs = TRUE,row.names = FALSE) %>%
+          kable_styling(latex_options = "scale_down")
+
+```
+
+The quick ratio is the ratio of quick assets to current liabilities. The purpose of analyzing this indicator is to evaluate the ability of listed airlines to quickly realize their liquidity (that is, to form quick assets).  Compared with the current ratio, analyzing the quick ratio can more directly and deeply determine the ability of listed airlines to repay their debts in time. As can be seen from the table, the current ratio of the seven airlines is consistent with the quick ratio.  China Airlines and Spring Airlines have the highest quick ratios, indicating that their liquid assets have a higher ability to quickly repay debts than other companies.  In contrast, the quick ratios of the other five airlines are still very low, and the short-term solvency of enterprises is weak.
+
+# Conclusion
+
+Through the above analysis, we can see that the short-term debt service risk of these seven airlines may have a liquidity crisis.These companies should Optimize the debt structure and seek the best debt scale.Unpayable debt is still one of the main manifestations of financial risk, and the liabilities assumed by enterprises are divided into short-term debt and long-term debt.  The short-term liabilities of listed airlines in my country are mainly composed of short-term borrowings and short-term financing bills payable, etc., which are mainly used to pay for operational payables such as aviation materials and oil materials and to meet increased financing needs.  Long-term liabilities are mainly used for the construction of fixed assets and aircraft leasing.  Whether a listed airline can successfully repay short-term debt will be constrained by its liquidity, and long-term debt repayment is closely related to its profitability. Therefore, it is necessary to optimize the listed airline’s debt structure and reduce the risk of corporate debt operations.  In addition, my country’s listed airlines have high asset-liability ratios and need to seek the best debt scale, that is, to maintain a balance between asset and liability ratios in the aviation industry, and to determine a reasonable capital structure to effectively prevent the risks caused by high-debt operations.
+
+
+

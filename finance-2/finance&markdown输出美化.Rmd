@@ -1,0 +1,92 @@
+---
+title: "**The weakness of new shares**"
+author: "guilinXue"
+date: "2020/6/5"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# 1 Introduction
+
+The long run performance of new shares is abnormal, also known as the weakness of new shares, which means that the return of new shares in the following three to five years is significantly lower than the average return of the stock market.In this article, I will test this theory through research.
+
+
+# 2 The empirical research
+
+## 2.1 Sample selection
+My research objects are 20 new stocks listed in A-shares in 2016,including SF Holding, Shentong Express, Xinhuanet, etc.I obtained the annual returns of these 20 stocks from 2017 to 2019 and the market index of the same period, with a total of **60** statistics.The specific stock symbol is shown in the table below.All data are from **CSMAR**.
+
+
+Table:Stock code
+
+Number|Stkcd|Number|Stkcd|
+|:-|:-|:-|:-|
+1|002823|11|603515
+2|300523|12|603716
+3|300535|13|603738
+4|300562|14|603777
+5|300565|15|603858
+6|300571|16|603888
+7|300572|17|002120
+8|600909|18|002352
+9|603258|19|002468
+10|603336|20|600233
+
+## 2.2 Definition of revenue metrics
+* The excess return on stock **$i$** in year **$t$**.
+$$ ar_{it}=r_{it}-r_{mt} $$
+Where, $r_{it}$ is the stock price return rate of stock $i$ in year $t$, and $r_{mt}$ is the corresponding index return rate (Csi 300 Index).
+
+* The average excess return
+
+$$AR_{t}=\frac{1}{n}\sum_{t=1}^{n}{ar_{it}}$$
+$AR_{t}$ is the average excess return in year $t$, and I adopt the arithmetic average method.
+
+* The cumulative excess return
+
+$$CAR_{q,s}=\sum_{t=q}^{s}{AR_{t}}$$
+$CAR_{q,s}$ represents the cumulative excess return from the $q$ to the $S$ years.
+
+## 2.3 Statistical results and analysis
+According to the above formula, the income index of each stock is calculated.
+
+Table: Stock trends statistics
+
+Time| Sample | Average excess returns|Cumulative excess return
+|:-:|:-:|:-:|:-:|
+2017 | 20 | -0.45818955|-0.45818955|
+2018 | 20 | 0.03302195|-0.4251676|
+2019 | 20 | -0.1022178|-0.5273854|
+
+Based on the analysis, we can conclude that these 20 new stocks issued in 2017 have underperformed the market as a whole from 2017 to 2019.From the perspective of average excess return, the average excess return in 2017 and 2019 is less than 0, even reaching -45.8% in the first year of initial offering, and only 3.3% in 2018.From the perspective of cumulative average excess return, the statistical results from 2017 to 2019 are all less than 0.
+
+
+# 3. Appendix
+
+```{r,echo = FALSE,warning=FALSE,message=FALSE}
+setwd("C:/Users/Administrator.SC-201809091908/Documents")
+library(readxl)
+a<-read_excel("finan1.xlsx")
+a<-as.data.frame(a)
+names(a)<-c("Stock code","Year","Annual return","Excess return")
+b<-subset(a,Year=="2017")
+c<-subset(a,Year=="2018")
+d<-subset(a,Year=="2019")
+c<-c[,-1]
+d<-d[,-1]
+e<-cbind.data.frame(b,c,d)
+library(knitr)
+library(kableExtra)
+library(dplyr)
+knitr::kable(e, format = "latex", booktabs = TRUE,row.names = FALSE) %>%
+          kable_styling(latex_options = "scale_down")
+```
+
+
+
+
+
