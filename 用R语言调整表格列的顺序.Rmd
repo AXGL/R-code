@@ -1,0 +1,42 @@
+---
+title: "用R语言调整表格列的顺序"
+documentclass: ctexart
+output:
+  rticles::ctex:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+classoption: "hyperref,"
+---
+
+# 方法一.base包的方法
+
+```{r}
+test = iris
+head(test)
+test2 = test[,c(5,1:4)] #把最后一列调到最开始
+```
+
+如果数据框有80列，你想把第60列和61列提到前面应该怎么做呢？
+
+```{r}
+df = data.frame(matrix(rnorm(80*6),nrow = 6)) #生成80列数据，6行。
+df[,1:3]
+df2 = df[,c(60:61,1:59,62:80)] #如果要提前的列分散一些，多一些，代码就会写的更复杂。
+df2[,1:3]
+```
+# 方法二.dplyr里的select函数
+
+```{r}
+library(dplyr)
+test3 = select(test,5,1:4) #把最后一列提前到第一列
+head(test3)
+
+test4 = select(test,5,everything()) #或者搭配everything()更好用
+head(test4)
+```
+所以刚才80列提取60和61列的代码就可以写为
+```{r}
+df3 = select(df,60,61,everything())
+df3[,1:3]
+```

@@ -1,0 +1,70 @@
+---
+title: "冠状病毒"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  word_document: default
+date: "2020/5/17"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 安装coronaobj包同时要安装rayrender包
+```{r,eval=FALSE}
+library(devtools)
+install_github("tylermorganwall/coronaobj")
+install_github("tylermorganwall/rayrender")
+```
+# 绘图
+## coronaobj是非常容易上手的包，只需要给其上色即可
+```{r paged.print=FALSE}
+library(coronaobj)
+library(rayrender)
+#首先需要生成一个病毒的对象
+write_corona_obj("defaults.obj")
+#其次直接调用模型函数作图
+obj_model("defaults.obj", vertex_colors = TRUE) %>%
+  add_object(sphere(y=10,z=10,x=10, material=light(intensity=100))) %>%
+  add_object(sphere(y=10,z=10,x=-10, material=light(intensity=100))) %>%
+  render_scene(parallel=TRUE, samples = 10, fov = 7, min_variance=0, focal_distance = 9.6)
+```
+ 
+## 还可以更改配色
+```{r paged.print=FALSE}
+write_corona_obj("custom_color.obj",
+                 color_membrane = "cadetblue1",
+                 color_spike = "steelblue",
+                 color_open_spike = "deepskyblue1")
+obj_model("custom_color.obj", vertex_colors = TRUE) %>%
+  add_object(sphere(y=10,z=10,x=10, material=light(color="lightblue",intensity=100))) %>%
+  add_object(sphere(y=10,z=10,x=-10, material=light(color="orange",intensity=100))) %>%
+  render_scene(parallel=TRUE, samples = 10, fov = 7, min_variance=0, focal_distance = 9.6)
+
+```
+
+## 还可以同时画多个病毒
+```{r echo=TRUE, paged.print=FALSE}
+write_corona_obj("custom_color3.obj", color_membrane = "#ed645c",
+                 color_spike = "#a32b24", color_open_spike = "#c91271")
+
+generate_ground(depth=-0.55,material = metal(color="darkred", fuzz=0.025)) %>%
+  add_object(obj_model("custom_color3.obj", vertex_colors = TRUE)) %>%
+  add_object(obj_model("custom_color3.obj", z=-6,x=0.8,y=0.5, angle=c(0,90,0),vertex_colors = TRUE)) %>%
+  add_object(obj_model("custom_color3.obj", z=-3,x=-0.5,y=0.2, angle=c(0,180,0), vertex_colors = TRUE)) %>%
+  add_object(sphere(y=10,x=-10, material=light(color="white",intensity=100))) %>%
+  add_object(sphere(y=0,x=10, material=light(color="purple",intensity=100))) %>%
+  render_scene(parallel=TRUE, samples = 10, focal_distance = 9.6, fov=10,
+               ambient_light = TRUE, min_variance=0,
+               backgroundhigh = "black", backgroundlow = "darkred",
+               aperture=0.2,clamp_value=10)
+```
+
+
+但是要注意的是，这个病毒模型生成的时候需要随机数生成，我这里都设置样本为10，这样的结果就是图片清晰度不高，如果要清晰度高的话，可以设置sample=100或者1000以上，但这同时也对你的电脑配置是个巨大的考验。
+
+
+
+

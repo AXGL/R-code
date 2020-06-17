@@ -1,0 +1,144 @@
+---
+title: <center>冠状病毒可视化</center>
+output:
+  html_document:
+    df_print: paged
+     toc: true
+     theme: cerulean
+     
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 1、获得数据
+首先需要先使用nCov2019包，你只需要按下如下代码：
+```{R eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
+install.packages("remotes")
+remotes::install_github("GuangchuangYu/nCov2019",force = TRUE)
+```
+
+# 2、尝试一下数据的获取,数据来自于腾讯的数据平台。
+```{R echo=TRUE, message=FALSE, warning=FALSE}
+require(nCov2019)
+x <- get_nCov2019()
+x
+ #返回数据的更新时间
+time(x)
+#直接打开腾讯的数据库
+open(x)
+#获得全国各省的数据
+head(x[])
+#获取省的数据直接打上省的名字就可以，例如输入就会看到广东各个城市的疫情情况
+head(x['广东', ])
+#查看全国今天感染的数据
+head(x[by='today'], 34)
+#查看具体省份今日感染的新增人数
+head(x['广东', by = "today"])
+#查看全球感染情况
+head(x['global',])
+#中国冠状病毒历史累计情况
+head(summary(x))
+#中国冠状病毒每日新增情况
+head(summary(x, by='today'))
+```
+```{r message=FALSE, warning=FALSE, include=FALSE, paged.print=FALSE}
+summary(x)
+```
+# 3、 **数据可视化**
+## 中国冠状病毒每日新增情况直方图
+```{r 中国冠状病毒每日新增情况直方图, message=TRUE, warning=FALSE}
+library(ggplot2)
+ggplot(summary(x), aes(as.Date(date, "%m.%d"), as.numeric(confirm))) +
+  geom_col(fill='firebrick') + theme_minimal(base_size = 14) +
+  xlab(NULL) + ylab(NULL) + 
+  labs(caption = paste("accessed date:", time(x)))
+```
+
+
+## 世界疫情分布情况
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+x=get_nCov2019()
+plot(x)
+```
+
+
+## 调用中国各省市疫情情况
+```{r message=FALSE, warning=FALSE, paged.print=FALSE}
+library(dplyr)
+x=load_nCov2019()#load_nCov2019用于获取历史数据，get_nCov2019则用于获取当前数据
+time(x)
+a=x[]
+b=summarise(group_by(a,time,province),
+            sum(cum_confirm),
+            sum(cum_dead),
+            sum(cum_heal))
+colnames(b)[3:5]=c('confirm','dead','heal')#修改列名
+#不要武汉，武汉数据太多了
+b=subset(b,province!='湖北')
+#作图x轴为治愈人数，y轴为确诊人数，size即加上死亡人数，死亡越多，size越大，colour区分省份
+library(ggplot2)
+p3=ggplot(b,aes(x=heal,y=confirm,
+                size=dead,
+                colour=province))+
+  geom_point(show.legend=T,alpha=0.8)+#show.lengend会显示图例，如果F就不会显示
+  labs(x="治愈",y="确诊")
+p3
+```
+
+## 用ggsave来保存高质量的图片
+```{r,eval=FALSE}
+ggsave("p3.png",width = 30,height = 54,units = "cm",dpi = 300)
+```
+
+## 调用gganimate来画动态残影图
+```{r}
+library(gganimate)
+animate(p3+transition_time(time)+labs(title="日期:{frame_time}")#标签
++shadow_wake(wake_length = 0.4,alpha = FALSE),renderer = gifski_renderer())#做残影
+```
+
+## 动态折线图
+```{r}
+library(gganimate)
+p4=ggplot(b,aes(x=time,y=confirm,color=factor(province)))+
+  geom_line(size=1)+
+  scale_color_viridis_d()+
+  scale_size(range = c(2,8))+
+  labs(x="时间",y="确诊")+
+  geom_point()+
+  transition_reveal(time)
+animate(p4,renderer=gifski_renderer())
+```
+
+## 文字动图
+```{r}
+p5=ggplot(b,aes(x=time,y=confirm,
+                color=factor(province)))+
+  scale_y_continuous(breaks = seq(0,1500,50))+
+  geom_text(aes(x=time,y=confirm,label=province))+
+  labs(x="时间","确诊")+theme(legend.position = "none")+
+  transition_time(time)+labs(title="{frame_time}")+
+  shadow_mark(alpha=1,size=1)
+animate(p5)
+```
+
+## 关于gganimate动态可视化的例子
+```{r}
+library(gapminder)
+p1<-ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  # Here comes the gganimate specific bits
+  labs(title = 'Year: {frame_time}', x = 'GDP per capita', y = 'life expectancy') +
+  transition_time(year) +
+  ease_aes('linear')
+animate(p1,renderer=gifski_renderer())
+```
+
+## 总而言之，ggplot2配上gganimate的动态效果给可视化带来了更直观的感受。
