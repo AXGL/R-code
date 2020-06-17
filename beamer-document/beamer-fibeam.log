@@ -1,0 +1,2368 @@
+This is LuaHBTeX, Version 1.12.0 (TeX Live 2020/W32TeX)  (format=lualatex 2020.6.11)  13 JUN 2020 00:04
+ restricted system commands enabled.
+**beamer-fibeam.tex
+(./beamer-fibeam.tex
+LaTeX2e <2020-02-02> patch level 5
+Lua module: luaotfload-main 2020-05-06 3.14 luaotfload entry point
+Lua module: luaotfload-init 2020-05-06 3.14 luaotfload submodule / initializatio
+n
+Lua module: lualibs 2020-05-01 2.71 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2020-05-01 2.71 ConTeXt Lua libraries -- extended c
+ollection.
+Lua module: luaotfload-log 2020-05-06 3.14 luaotfload submodule / logging
+Lua module: luaotfload-parsers 2020-05-06 3.14 luaotfload submodule / filelist
+Lua module: luaotfload-configuration 2020-05-06 3.14 luaotfload submodule / conf
+ig file reader
+luaotfload | conf : Root cache directory is "D:/tex live/texlive/2020/texmf-var/
+luatex-cache/generic-dev/names".
+luaotfload | init : Loading fontloader "fontloader-2020-05-06.lua" from kpse-res
+olved path "d:/tex live/texlive/2020/texmf-dist/tex/luatex/luaotfload/fontloader
+-2020-05-06.lua".
+Lua-only attribute luaotfload@noligature = 1
+Lua-only attribute luaotfload@syllabe = 2
+luaotfload | init : Context OpenType loader version 0x1.8e353f7ced917p+1
+Lua module: luaotfload-fallback 2020-05-06 3.14 luaotfload submodule / fallback
+Lua module: luaotfload-multiscript 2020-05-06 3.14 luaotfload submodule / multis
+cript
+Lua module: luaotfload-script 2020-05-06 3.14 luaotfload submodule / Script help
+ers
+Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Lua module: luaotfload-loaders 2020-05-06 3.14 luaotfload submodule / callback h
+andling
+Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua module: luaotfload-database 2020-05-06 3.14 luaotfload submodule / database
+Lua module: luaotfload-unicode 2020-05-06 3.14 luaotfload submodule / Unicode he
+lpers
+Lua module: luaotfload-colors 2020-05-06 3.14 luaotfload submodule / color
+Lua-only attribute luaotfload_color_attribute = 3
+Lua module: luaotfload-resolvers 2020-05-06 3.14 luaotfload submodule / resolver
+s
+luaotfload | conf : Root cache directory is "D:/tex live/texlive/2020/texmf-var/
+luatex-cache/generic-dev/names".
+Lua module: luaotfload-features 2020-05-06 3.14 luaotfload submodule / features
+Lua module: luaotfload-harf-define 2020-05-06 3.14 luaotfload submodule / databa
+se
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_opentype_file'.
+Inserting `luaotfload.harf.strip_prefix' at position 1 in `find_truetype_file'.
+Lua module: luaotfload-harf-plug 2020-05-06 3.14 luaotfload submodule / database
+Inserting `Harf pre_output_filter callback' at position 1 in `pre_output_filter'
+.
+Inserting `Harf wrapup_run callback' at position 1 in `wrapup_run'.
+Inserting `Harf finish_pdffile callback' at position 1 in `finish_pdffile'.
+Inserting `Harf glyph_info callback' at position 1 in `glyph_info'.
+Lua module: luaotfload-letterspace 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-embolden 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-notdef 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-suppress 2020-05-06 3.14 luaotfload submodule / suppress
+Lua module: luaotfload-szss 2020-05-06 3.14 luaotfload submodule / color
+Lua module: luaotfload-auxiliary 2020-05-06 3.14 luaotfload submodule / auxiliar
+y functions
+Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 2 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 3 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_fon
+t_unsafe'.
+Inserting `luaotfload.aux.set_capheight' at position 4 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 5 in `luaotfload.patch_font'.
+Lua module: luaotfload-tounicode 2020-05-06 3.14 luaotfload submodule / tounicod
+e
+Inserting `luaotfload.rewrite_fontname' at position 6 in `luaotfload.patch_font'
+. L3 programming layer <2020-06-03> ("d:/tex live/texlive/2020/texmf-dist/tex/l
+atex/ctex/ctexbeamer.cls" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/
+config/ctexbackend.cfg"
+File: ctexbackend.cfg 2020/06/06 v2.5.3 Backend configuration file (CTEX)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty"
+Package: expl3 2020-06-03 L3 programming layer (loader) 
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+"
+File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count163
+\l__pdf_internal_box=\box45
+))
+Document Class: ctexbeamer 2020/06/06 v2.5.3 Chinese adapter for class beamer (C
+TEX)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty"
+Package: xparse 2020-05-15 L3 Experimental document command parser
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse-generi
+c.tex"
+\l__xparse_current_arg_int=\count164
+\g__xparse_grabber_int=\count165
+\l__xparse_m_args_int=\count166
+\l__xparse_v_nesting_int=\count167
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.st
+y"
+Package: l3keys2e 2020-05-15 LaTeX2e option processing using LaTeX3 keys
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/ctexhook.sty"
+Package: ctexhook 2020/06/06 v2.5.3 Document and package hooks (CTEX)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/ctexpatch.sty"
+Package: ctexpatch 2020/06/06 v2.5.3 Patching commands (CTEX)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/base/fix-cm.sty"
+Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/base/ts1enc.def"
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/ms/everysel.sty"
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+\l__ctex_tmp_int=\count168
+\l__ctex_tmp_box=\box46
+\l__ctex_tmp_dim=\dimen134
+\g__ctex_font_size_int=\count169
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/config/ctexopts.cfg"
+File: ctexopts.cfg 2020/06/06 v2.5.3 Option configuration file (CTEX)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamer.cls"
+Document Class: beamer 2020/05/06 v3.58 A class for typesetting presentations
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasemodes.sty" ("d
+:/tex live/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty"
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count170
+)
+\beamer@tempbox=\box47
+\beamer@tempcount=\count171
+\c@beamerpauses=\count172
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasedecode.sty"
+\beamer@slideinframe=\count173
+\beamer@minimum=\count174
+\beamer@decode@box=\box48
+)
+\beamer@commentbox=\box49
+\beamer@modecount=\count175
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/iftex/ifpdf.sty"
+Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty"
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\headdp=\dimen135
+\footheight=\dimen136
+\sidebarheight=\dimen137
+\beamer@tempdim=\dimen138
+\beamer@finalheight=\dimen139
+\beamer@animht=\dimen140
+\beamer@animdp=\dimen141
+\beamer@animwd=\dimen142
+\beamer@leftmargin=\dimen143
+\beamer@rightmargin=\dimen144
+\beamer@leftsidebar=\dimen145
+\beamer@rightsidebar=\dimen146
+\beamer@boxsize=\dimen147
+\beamer@vboxoffset=\dimen148
+\beamer@descdefault=\dimen149
+\beamer@descriptionwidth=\dimen150
+\beamer@lastskip=\skip47
+\beamer@areabox=\box50
+\beamer@animcurrent=\box51
+\beamer@animshowbox=\box52
+\beamer@sectionbox=\box53
+\beamer@logobox=\box54
+\beamer@linebox=\box55
+\beamer@sectioncount=\count176
+\beamer@subsubsectionmax=\count177
+\beamer@subsectionmax=\count178
+\beamer@sectionmax=\count179
+\beamer@totalheads=\count180
+\beamer@headcounter=\count181
+\beamer@partstartpage=\count182
+\beamer@sectionstartpage=\count183
+\beamer@subsectionstartpage=\count184
+\beamer@animationtempa=\count185
+\beamer@animationtempb=\count186
+\beamer@xpos=\count187
+\beamer@ypos=\count188
+\beamer@ypos@offset=\count189
+\beamer@showpartnumber=\count190
+\beamer@currentsubsection=\count191
+\beamer@coveringdepth=\count192
+\beamer@sectionadjust=\count193
+\beamer@tocsectionnumber=\count194
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+))
+\beamer@paperwidth=\skip48
+\beamer@paperheight=\skip49
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty"
+Package: geometry 2020/01/02 v5.9 Page Geometry
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty"
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count195
+\Gm@cntv=\count196
+\c@Gm@tempcnt=\count197
+\Gm@bindingoffset=\dimen151
+\Gm@wd@mp=\dimen152
+\Gm@odd@mp=\dimen153
+\Gm@even@mp=\dimen154
+\Gm@layoutwidth=\dimen155
+\Gm@layoutheight=\dimen156
+\Gm@layouthoffset=\dimen157
+\Gm@layoutvoffset=\dimen158
+\Gm@dimlist=\toks16
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/base/size11.clo"
+File: size11.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+luaotfload | db : Font names database loaded from D:/tex live/texlive/2020/texmf
+-var/luatex-cache/generic-dev/names/luaotfload-names.luc) ("d:/tex live/texlive
+/2020/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty" ("d:/tex live/texlive/20
+20/texmf-dist/tex/latex/graphics/graphicx.sty"
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty"
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: luatex.def on input line 105.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/graphics-def/luatex.def"
+File: luatex.def 2018/01/08 v1.0l Graphics/color driver for luatex
+))
+\Gin@req@height=\dimen159
+\Gin@req@width=\dimen160
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty"
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.
+tex"
+\pgfutil@everybye=\toks17
+\pgfutil@tempdima=\dimen161
+\pgfutil@tempdimb=\dimen162
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-
+lists.tex"))
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.d
+ef"
+\pgfutil@abb=\box56
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/ms/everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.
+tex" ("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/pgf.revision.tex")
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.t
+ex"
+Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.te
+x"
+\pgfkeys@pathtoks=\toks18
+\pgfkeys@temptoks=\toks19
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered
+.code.tex"
+\pgfkeys@tmptoks=\toks20
+))
+\pgf@x=\dimen163
+\pgf@y=\dimen164
+\pgf@xa=\dimen165
+\pgf@ya=\dimen166
+\pgf@xb=\dimen167
+\pgf@yb=\dimen168
+\pgf@xc=\dimen169
+\pgf@yc=\dimen170
+\pgf@xd=\dimen171
+\pgf@yd=\dimen172
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count198
+\c@pgf@countb=\count199
+\c@pgf@countc=\count266
+\c@pgf@countd=\count267
+\t@pgf@toka=\toks21
+\t@pgf@tokb=\toks22
+\t@pgf@tokc=\toks23
+\pgf@sys@id@count=\count268
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg"
+File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
+)
+Driver file for pgf: pgfsys-luatex.def
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-luatex
+.def"
+File: pgfsys-luatex.def 2020/01/08 v3.1.5b (3.1.5b)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common
+-pdf.def"
+File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
+)))
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpat
+h.code.tex"
+File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfsyssoftpath@smallbuffer@items=\count269
+\pgfsyssoftpath@bigbuffer@items=\count270
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotoco
+l.code.tex"
+File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: luatex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/graphics/dvipsnam.def"
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/xcolor/svgnam.def"
+File: svgnam.def 2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/xcolor/x11nam.def"
+File: x11nam.def 2016/05/11 v2.12 Predefined colors according to Unix/X11 (UK)
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.t
+ex"
+Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex" ("
+d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex" 
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.t
+ex"
+\pgfmath@dimen=\dimen173
+\pgfmath@count=\count271
+\pgfmath@box=\box57
+\pgfmath@toks=\toks24
+\pgfmath@stack@operand=\toks25
+\pgfmath@stack@operation=\toks26
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.cod
+e.tex"
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.bas
+ic.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.tri
+gonometric.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.ran
+dom.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.com
+parison.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.bas
+e.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rou
+nd.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.mis
+c.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.int
+egerarithmetics.code.tex")))
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.te
+x"
+\c@pgfmathroundto@lastzeros=\count272
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfint.code.tex")
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.
+code.tex"
+File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@picminx=\dimen174
+\pgf@picmaxx=\dimen175
+\pgf@picminy=\dimen176
+\pgf@picmaxy=\dimen177
+\pgf@pathminx=\dimen178
+\pgf@pathmaxx=\dimen179
+\pgf@pathminy=\dimen180
+\pgf@pathmaxy=\dimen181
+\pgf@xx=\dimen182
+\pgf@xy=\dimen183
+\pgf@yx=\dimen184
+\pgf@yy=\dimen185
+\pgf@zx=\dimen186
+\pgf@zy=\dimen187
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathcon
+struct.code.tex"
+File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@path@lastx=\dimen188
+\pgf@path@lasty=\dimen189
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusa
+ge.code.tex"
+File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@shorten@end@additional=\dimen190
+\pgf@shorten@start@additional=\dimen191
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.
+code.tex"
+File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfpic=\box58
+\pgf@hbox=\box59
+\pgf@layerbox@main=\box60
+\pgf@picture@serial@count=\count273
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphic
+state.code.tex"
+File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgflinewidth=\dimen192
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransfo
+rmations.code.tex"
+File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@pt@x=\dimen193
+\pgf@pt@y=\dimen194
+\pgf@pt@temp=\dimen195
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.c
+ode.tex"
+File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects
+.code.tex"
+File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathpro
+cessing.code.tex"
+File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.
+code.tex"
+File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowsep=\dimen196
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.c
+ode.tex"
+File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@max=\dimen197
+\pgf@sys@shading@range@num=\count274
+\pgf@shadingcount=\count275
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.c
+ode.tex"
+File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexterna
+l.code.tex"
+File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfexternal@startupbox=\box61
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.
+code.tex"
+File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspa
+rency.code.tex"
+File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepattern
+s.code.tex"
+File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.cod
+e.tex"
+File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty"
+Package: xxcolor 2003/10/24 ver 0.1
+\XC@nummixins=\count276
+\XC@countmixins=\count277
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty"
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty"
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty"
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/hyperref/hyperref.sty"
+Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty"
+Package: pdftexcmds 2020-06-04 v0.32 Utility functions of pdfTeX for LuaTeX (HO)
+
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+\pdftexcmds@toks=\toks27
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty"
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.s
+ty"
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/pdfescape/pdfescape.sty"
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/hycolor/hycolor.sty"
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty"
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/auxhook/auxhook.sty"
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty"
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+)
+\@linkdim=\dimen198
+\Hy@linkcounter=\count278
+\Hy@pagecounter=\count279
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/hyperref/pd1enc.def"
+File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/intcalc/intcalc.sty"
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/etexcmds/etexcmds.sty"
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count280
+Package hyperref Info: Option `unicode' set `true' on input line 4338.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/hyperref/puenc.def"
+File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+)
+Package hyperref Info: Option `bookmarks' set `true' on input line 4338.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4338.
+Package hyperref Info: Option `implicit' set `false' on input line 4338.
+Package hyperref Info: Hyper figures OFF on input line 4464.
+Package hyperref Info: Link nesting OFF on input line 4469.
+Package hyperref Info: Hyper index ON on input line 4472.
+Package hyperref Info: Plain pages OFF on input line 4479.
+Package hyperref Info: Backreferencing OFF on input line 4484.
+Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+Package hyperref Info: Bookmarks ON on input line 4717.
+\c@Hy@tempcnt=\count281
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/url/url.sty"
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5076.
+\XeTeXLinkMargin=\dimen199
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/bitset/bitset.sty"
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty"
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+
+))
+\Fld@menulength=\count282
+\Field@Width=\dimen256
+\Fld@charsize=\dimen257
+Package hyperref Info: Hyper figures OFF on input line 6347.
+Package hyperref Info: Link nesting OFF on input line 6352.
+Package hyperref Info: Hyper index ON on input line 6355.
+Package hyperref Info: backreferencing OFF on input line 6362.
+Package hyperref Info: Link coloring OFF on input line 6367.
+Package hyperref Info: Link coloring with OCG OFF on input line 6372.
+Package hyperref Info: PDF/A mode OFF on input line 6377.
+LaTeX Info: Redefining \ref on input line 6417.
+LaTeX Info: Redefining \pageref on input line 6421.
+\Hy@abspage=\count283
+
+Package hyperref Message: Stopped early.
+
+)
+Package hyperref Info: Driver (autodetected): hluatex.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/hyperref/hluatex.def"
+File: hluatex.def 2020-05-15 v7.00e Hyperref driver for luaTeX
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/stringenc/stringenc.sty"
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/atveryend/atveryend.sty"
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+)
+\Fld@listcount=\count284
+\c@bookmark@seq@number=\count285
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.s
+ty"
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/uniquecounter/uniquecounter.s
+ty"
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
+6.
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaserequires.st
+y"
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasecompatibility.
+sty") ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks28
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.s
+ty"
+Package: sansmathaccent 2020/01/31
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/koma-script/scrlfile.sty"
+Package: scrlfile 2020/04/19 v3.30 KOMA-Script package (loading files)
+))) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasetranslator
+.sty" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/translator/translator.sty
+"
+Package: translator 2019-05-31 v1.12a Easy translation of strings in LaTeX
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasemisc.sty") 
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty
+") ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+"
+\beamer@argscount=\count286
+\beamer@lastskipcover=\skip50
+\beamer@trivlistdepth=\count287
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasetitle.sty") 
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasesection.sty"
+\c@lecture=\count288
+\c@part=\count289
+\c@section=\count290
+\c@subsection=\count291
+\c@subsubsection=\count292
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseframe.sty"
+\beamer@framebox=\box62
+\beamer@frametitlebox=\box63
+\beamer@zoombox=\box64
+\beamer@zoomcount=\count293
+\beamer@zoomframecount=\count294
+\beamer@frametextheight=\dimen258
+\c@subsectionslide=\count295
+\beamer@frametopskip=\skip51
+\beamer@framebottomskip=\skip52
+\beamer@frametopskipautobreak=\skip53
+\beamer@framebottomskipautobreak=\skip54
+\beamer@envbody=\toks29
+\framewidth=\dimen259
+\c@framenumber=\count296
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+"
+\beamer@verbatimfileout=\write4
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseframesize.st
+y"
+\beamer@splitbox=\box65
+\beamer@autobreakcount=\count297
+\beamer@autobreaklastheight=\dimen260
+\beamer@frametitletoks=\toks30
+\beamer@framesubtitletoks=\toks31
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseframecomponent
+s.sty"
+\beamer@footins=\box66
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasecolor.sty") 
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasenotes.sty"
+\beamer@frameboxcopy=\box67
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasetoc.sty") ("
+d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty"
+\beamer@sbttoks=\toks32
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.s
+ty" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty"
+\bmb@box=\box68
+\bmb@colorbox=\box69
+\bmb@boxshadow=\box70
+\bmb@boxshadowball=\box71
+\bmb@boxshadowballlarge=\box72
+\bmb@temp=\dimen261
+\bmb@dima=\dimen262
+\bmb@dimb=\dimen263
+\bmb@prevheight=\dimen264
+)
+\beamer@blockheadheight=\dimen265
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbaselocalstructure
+.sty" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/tools/enumerate.sty"
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks33
+)
+\c@figure=\count298
+\c@table=\count299
+\abovecaptionskip=\skip55
+\belowcaptionskip=\skip56
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasenavigation.s
+ty"
+\beamer@section@min@dim=\dimen266
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+" ("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty"
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip57
+For additional information on amsmath, use the `?' option.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty"
+Package: amstext 2000/06/29 v2.01 AMS text
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks34
+\ex@=\dimen267
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen268
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty"
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count300
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count301
+\leftroot@=\count302
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count303
+\DOTSCASE@=\count304
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box73
+\strutbox@=\box74
+\big@size=\dimen269
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count305
+\c@MaxMatrixCols=\count306
+\dotsspace@=\muskip17
+\c@parentequation=\count307
+\dspbrk@lvl=\count308
+\tag@help=\toks35
+\row@=\count309
+\column@=\count310
+\maxfields@=\count311
+\andhelp@=\toks36
+\eqnshift@=\dimen270
+\alignsep@=\dimen271
+\tagshift@=\dimen272
+\tagwidth@=\dimen273
+\totwidth@=\dimen274
+\lineht@=\dimen275
+\@envbody=\toks37
+\multlinegap=\skip58
+\multlinetaggap=\skip59
+\mathdisplay@stack=\toks38
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/amscls/amsthm.sty"
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks39
+\thm@bodyfont=\toks40
+\thm@headfont=\toks41
+\thm@notefont=\toks42
+\thm@headpunct=\toks43
+\thm@preskip=\skip60
+\thm@postskip=\skip61
+\thm@headsep=\skip62
+\dth@everypar=\toks44
+)
+\c@theorem=\count312
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerbasethemes.sty"))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerthemedefault.sty"
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerfontthemedefault.s
+ty")
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamercolorthemedefault.
+sty")
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerinnerthemedefault.
+sty"
+\beamer@dima=\dimen276
+\beamer@dimb=\dimen277
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerouterthemedefault.
+sty")))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/engine/ctex-engine-luatex.
+def"
+File: ctex-engine-luatex.def 2020/06/06 v2.5.3 LuaLaTeX adapter (CTEX)
+("d:/tex live/texlive/2020/texmf-dist/tex/luatex/luatexja/luatexja.sty"
+Package: luatexja 2020-04-12 Japanese Typesetting with Lua(La)TeX
+("d:/tex live/texlive/2020/texmf-dist/tex/luatex/luatexja/luatexja-core.sty"
+Package: luatexja-core 2017/11/12 Core of LuaTeX-ja
+("d:/tex live/texlive/2020/texmf-dist/tex/luatex/luatexbase/luatexbase.sty"
+Package: luatexbase 2015/10/04 v1.3 luatexbase interface to LuaTeX 
+("d:/tex live/texlive/2020/texmf-dist/tex/luatex/ctablestack/ctablestack.sty"
+Package: ctablestack 2015/10/01 v1.0 Catcode table stable support
+\@catcodetablestackcnt=\count313
+)
+\CatcodeTableOther=\catcodetable5
+\CatcodeTableExpl=\catcodetable6
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/xkeyval/xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/xkeyval/xkeyval.tex" ("d:/tex
+ live/texlive/2020/texmf-dist/tex/generic/xkeyval/xkvutils.tex"
+\XKV@toks=\toks45
+\XKV@tempa@toks=\toks46
+)
+\XKV@depth=\count314
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\AtBeginShipoutBox=\box75
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/everyhook/everyhook.sty" ("d:/t
+ex live/texlive/2020/texmf-dist/tex/latex/svn-prov/svn-prov.sty"
+Package: svn-prov 2010/04/24 v3.1862 Package Date/Version from SVN Keywords
+)
+Package: everyhook 2014/11/26 v1.2 (SVN Rev: 12)\ Hooks for low level TeX everyX
+ primitives.
+\everypar=\toks47
+\frozen@everymath=\toks48
+\frozen@everydisplay=\toks49
+\everyhbox=\toks50
+\everyvbox=\toks51
+\everycr=\toks52
+)
+\ltjlineendcomment=\count315
+\ltj@dimen@zw=\dimen278
+\ltj@dimen@zh=\dimen279
+\ltj@dimen@jQ=\dimen280
+\ltj@icflag=\attribute4
+\ltj@curjfnt=\attribute5
+\ltj@curtfnt=\attribute6
+\ltj@charclass=\attribute7
+\ltj@charcode=\attribute8
+\ltj@autospc=\attribute9
+\ltj@autoxspc=\attribute10
+\ltj@yablshift=\attribute11
+\ltj@ykblshift=\attribute12
+\ltj@tablshift=\attribute13
+\ltj@tkblshift=\attribute14
+\jfam=\attribute15
+\ltj@vert@ori=\attribute16
+\ltj@dir=\attribute17
+\ltj@@japanese=\language2
+\ltj@tempcnta=\count316
+\ltj@kcat0=\attribute18
+\ltj@kcat1=\attribute19
+\ltj@kcat2=\attribute20
+\ltj@kcat3=\attribute21
+\ltj@kcat4=\attribute22
+\ltj@kcat5=\attribute23
+\ltj@kcat6=\attribute24
+Custom whatsit inhibitglue = 1
+Custom whatsit stack_marker = 2
+Custom whatsit begin_par = 3
+Custom whatsit direction = 4
+Custom whatsit box_boundary = 5
+Custom whatsit ja_al_boundary = 6(load cache: C:/Users/Administrator.SC-20180909
+1908/.texlive2020/texmf-var/luatexja/ltj-cid-auto-adobe-japan1.luc)
+Lua module: luatexja.charrange 2019/09/26 Handling the range of Japanese charact
+ers
+Lua module: luatexja.stack 2019/09/26 LuaTeX-ja stack system
+Inserting `ltj.create_dir_whatsit' at position 2 in `hpack_filter'.
+Inserting `ltj.create_dir_whatsit' at position 1 in `post_linebreak_filter'.
+Inserting `ltj.direction' at position 1 in `vpack_filter'.
+Inserting `ltj.direction' at position 2 in `pre_output_filter'.
+Inserting `ltj.lineskip' at position 2 in `post_linebreak_filter'.
+Inserting `ltj.lineskip' at position 1 in `append_to_vlist_filter'.
+Lua module: luatexja.jfont 2020-05-17 Loader for Japanese fonts
+Removing  `luaotfload.define_font' from `define_font'.
+Inserting `luatexja.font_callback' at position 1 in `define_font'.
+Removing  `luaotfload.aux.set_sscale_dimens' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.set_font_index' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.patch_cambria_domh' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.set_capheight' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.set_xheight' from `luaotfload.patch_font'.
+Removing  `luaotfload.rewrite_fontname' from `luaotfload.patch_font'.
+Inserting `ltj.prepare_extra_data' at position 1 in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_sscale_dimens' at position 2 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 3 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 4 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.set_capheight' at position 5 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 6 in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' at position 7 in `luaotfload.patch_font'
+.
+Inserting `ltj.prepare_extra_data' at position 1 in `luatexja.define_font'.
+Inserting `ltj.get_vert_form' at position 1 in `luatexja.define_jfont'.
+Removing  `ltj.prepare_extra_data' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.set_sscale_dimens' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.set_font_index' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.patch_cambria_domh' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.set_capheight' from `luaotfload.patch_font'.
+Removing  `luaotfload.aux.set_xheight' from `luaotfload.patch_font'.
+Removing  `luaotfload.rewrite_fontname' from `luaotfload.patch_font'.
+Inserting `ltj.supply_tounicode' at position 1 in `luaotfload.patch_font'.
+Inserting `ltj.prepare_extra_data' at position 2 in `luaotfload.patch_font'.
+Inserting `luaotfload.aux.set_sscale_dimens' at position 3 in `luaotfload.patch_
+font'.
+Inserting `luaotfload.aux.set_font_index' at position 4 in `luaotfload.patch_fon
+t'.
+Inserting `luaotfload.aux.patch_cambria_domh' at position 5 in `luaotfload.patch
+_font'.
+Inserting `luaotfload.aux.set_capheight' at position 6 in `luaotfload.patch_font
+'.
+Inserting `luaotfload.aux.set_xheight' at position 7 in `luaotfload.patch_font'.
+Inserting `luaotfload.rewrite_fontname' at position 8 in `luaotfload.patch_font'
+.
+Inserting `ltj.process_input_buffer' at position 1 in `process_input_buffer'.
+Inserting `ltj.hyphenate' at position 1 in `hyphenate'.
+Removing  `luaotfload.node_processor' from `hpack_filter'.
+Removing  `ltj.create_dir_whatsit' from `hpack_filter'.
+Inserting `ltj.set_stack_level' at position 1 in `hpack_filter'.
+Inserting `luaotfload.node_processor' at position 2 in `hpack_filter'.
+Inserting `ltj.create_dir_whatsit' at position 3 in `hpack_filter'.
+Removing  `luaotfload.node_processor' from `pre_linebreak_filter'.
+Inserting `ltj.set_stack_level' at position 1 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 2 in `pre_linebreak_filter'.
+Lua module: luatexja.jfmglue 2020/01/23 Insertion process of JFM glues, [x]kanji
+skip and others
+Inserting `luatexja.beginpar.np_info' at position 1 in `luatexja.jfmglue.whatsit
+_getinfo'.
+Inserting `luatexja.beginpar.np_info_after' at position 1 in `luatexja.jfmglue.w
+hatsit_after'.
+Inserting `ltj.mlist_to_hlist_pre' at position 1 in `pre_mlist_to_hlist_filter'.
+Inserting `ltj.main' at position 3 in `pre_linebreak_filter'.
+Removing  `ltj.create_dir_whatsit' from `hpack_filter'.
+Inserting `ltj.main' at position 3 in `hpack_filter'.
+Inserting `ltj.create_dir_whatsit' at position 4 in `hpack_filter'.
+Removing  `ltj.set_stack_level' from `pre_linebreak_filter'.
+Removing  `luaotfload.node_processor' from `pre_linebreak_filter'.
+Removing  `ltj.main' from `pre_linebreak_filter'.
+Inserting `ltj.adjust_icflag' at position 1 in `pre_linebreak_filter'.
+Inserting `ltj.set_stack_level' at position 2 in `pre_linebreak_filter'.
+Inserting `luaotfload.node_processor' at position 3 in `pre_linebreak_filter'.
+Inserting `ltj.main' at position 4 in `pre_linebreak_filter'.
+Removing  `ltj.set_stack_level' from `hpack_filter'.
+Removing  `luaotfload.node_processor' from `hpack_filter'.
+Removing  `ltj.main' from `hpack_filter'.
+Removing  `ltj.create_dir_whatsit' from `hpack_filter'.
+Inserting `ltj.adjust_icflag' at position 1 in `hpack_filter'.
+Inserting `ltj.set_stack_level' at position 2 in `hpack_filter'.
+Inserting `luaotfload.node_processor' at position 3 in `hpack_filter'.
+Inserting `ltj.main' at position 4 in `hpack_filter'.
+Inserting `ltj.create_dir_whatsit' at position 5 in `hpack_filter'. ("d:/tex li
+ve/texlive/2020/texmf-dist/tex/luatex/luatexja/ltj-base.sty"
+Package: ltj-base 2017/05/05
+\ltj@tempcntb=\count317
+\ltj@tempcntc=\count318
+\ltj@tempdima=\dimen281
+\ltj@afbox=\box76
+)
+\ltj@@italic@inner=\luafunction1
+\ltj@@start@time@measure@inner=\luafunction2
+\ltj@@stop@time@measure@inner=\luafunction3
+\ltj@@jfont@inner=\luafunction4
+\ltj@zw@inner=\luafunction5
+\ltj@zh@inner=\luafunction6
+\ltj@reset@globaldefs@inner=\luafunction7
+\ltj@restore@globaldefs@inner=\luafunction8
+\ltj@@ihb@inner=\luafunction9
+\ltj@@fakeparbegin@inner=\luafunction10
+\ltj@@fakeboxbdd@inner=\luafunction11
+\ltj@@stack=\count319
+\ltj@@group@level=\count320
+\ltjsetkanjiskip@inner=\luafunction12
+\ltjsetxkanjiskip@inner=\luafunction13
+\ltj@@getparam@one@inner=\luafunction14
+\ltj@alljachar@inner=\luafunction15
+\ltj@@lua@populate@insertwhatsit@inner=\luafunction16
+\ltj@@box@dirhook@inner=\luafunction17
+\ltj@@reset@badness@inner=\luafunction18
+\ltj@@lua@raisebox@inner=\luafunction19
+\ltj@@lua@unboxcheckdir@inner=\luafunction20
+\ltj@temp@cctb=\catcodetable7
+) ("d:/tex live/texlive/2020/texmf-dist/tex/luatex/luatexja/luatexja-compat.sty
+"
+Package: luatexja-compat 2018/03/29 Compatibility with pTeX
+(load cache: C:/Users/Administrator.SC-201809091908/.texlive2020/texmf-var/luate
+xja/ltj-jisx0208.luc)
+\hour=\count321
+\minute=\count322
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/fontspec/fontspec.sty"
+Package: fontspec 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTeX
+Lua module: fontspec 2020/02/21 2.7i Font selection for XeLaTeX and LuaLaTeX ("
+d:/tex live/texlive/2020/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty"
+Package: fontspec-luatex 2020/02/21 v2.7i Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count323
+\l__fontspec_language_int=\count324
+\l__fontspec_strnum_int=\count325
+\l__fontspec_tmp_int=\count326
+\l__fontspec_tmpa_int=\count327
+\l__fontspec_tmpb_int=\count328
+\l__fontspec_tmpc_int=\count329
+\l__fontspec_em_int=\count330
+\l__fontspec_emdef_int=\count331
+\l__fontspec_strong_int=\count332
+\l__fontspec_strongdef_int=\count333
+\l__fontspec_tmpa_dim=\dimen282
+\l__fontspec_tmpb_dim=\dimen283
+\l__fontspec_tmpc_dim=\dimen284
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/base/fontenc.sty"
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/fontspec/fontspec.cfg"))) ("d
+:/tex live/texlive/2020/texmf-dist/tex/latex/base/tuenc.def"
+File: tuenc.def 2020/02/11 v2.0o Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
+)
+Lua function ctex = 21
+Lua function ctex = 22
+Lua function ctex = 23
+Lua function ctex = 24
+Lua function ctex = 25
+Lua function ctex = 26
+Lua function ctex = 27
+Lua function ctex = 28
+Lua function ctex = 29
+Lua function ctex = 30
+\symCJKmath=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `CJKmath' in version `bold'
+(Font)                  LTJY3/song/m/n --> LTJY3/song/b/n on input line 458.
+\g__ctex_ltj_family_int=\count334
+Package hyperref Info: Option `unicode' set `true' on input line 1140.
+\ccwd=\dimen285
+\l__ctex_ccglue_skip=\skip63
+(load cache: C:/Users/Administrator.SC-201809091908/.texlive2020/texmf-var/luate
+xja/ltj-cid-auto-adobe-gb1.luc)
+(d:/tex live/texlive/2020/texmf-dist/tex/luatex/luatexja/jfm-quanjiao.lua)
+\l__ctex_xkanjiskip_skip=\skip64
+\cht=\dimen286
+\cdp=\dimen287
+\cwd=\dimen288
+Lua function ctex = 31)
+\l__ctex_ziju_dim=\dimen289
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/zhnumber/zhnumber.sty"
+Package: zhnumber 2020/05/01 v2.8 Typesetting numbers with Chinese glyphs
+\l__zhnum_scale_int=\count335
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/zhnumber/zhnumber-utf8.cfg"
+File: zhnumber-utf8.cfg 2020/05/01 v2.8 Chinese numerals with UTF8 encoding
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese
+-beamer.def"
+File: ctex-scheme-chinese-beamer.def 2020/06/06 v2.5.3 Chinese scheme for beamer
+ (CTEX)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg"
+File: ctex-name-utf8.cfg 2020/06/06 v2.5.3 Caption with encoding UTF-8 (CTEX)
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-adobe
+.def"
+File: ctex-fontset-adobe.def 2020/06/06 v2.5.3 Adobe fonts definition (CTEX)
+luaotfload | cache : Lookup cache loaded from D:/tex live/texlive/2020/texmf-var
+/luatex-cache/generic-dev/names/luaotfload-lookup-cache.luc.
+
+Package fontspec Info: Could not resolve font "AdobeKaitiStd-Regular/B" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "AdobeHeitiStd-Regular/I" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "AdobeSongStd-Light/BI" (it
+(fontspec)             probably doesn't exist).
+
+luaotfload | aux : font no 34 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 35 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 36 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'AdobeSongStd-Light(0)' created for font
+(fontspec)             'AdobeSongStd-Light' with options
+(fontspec)             [NFSSEncoding=LTJY3,JFM=quanjiao,BoldFont={AdobeHeitiStd-
+Regular},ItalicFont={AdobeKaitiStd-Regular},LTJFONTUID=1].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"AdobeSongStd-Light:mode=node;script=latn;language=dfl
+t;jfm=quanjiao;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"AdobeHeitiStd-Regular:mode=node;script=latn;language=
+dflt;jfm=quanjiao;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"AdobeKaitiStd-Regular:mode=node;script=latn;language=
+dflt;jfm=quanjiao;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/config/ctex.cfg"
+File: ctex.cfg 2020/06/06 v2.5.3 Configuration file (CTEX)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty"
+Package: pgfpages 2011/01/05 ver 0.02
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/tools/calc.sty"
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count336
+\calc@Bcount=\count337
+\calc@Adimen=\dimen290
+\calc@Bdimen=\dimen291
+\calc@Askip=\skip65
+\calc@Bskip=\skip66
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count338
+\calc@Cskip=\skip67
+)
+\pgf@logicalpages=\count339
+\pgf@firstshipout=\count340
+\pgf@lastshipout=\count341
+\pgf@currentshipout=\count342
+\pgf@cpn=\count343
+\pgf@shipoutnextto=\count344
+\pgfphysicalheight=\dimen292
+\pgfphysicalwidth=\dimen293
+\pgfpages@shipoutbox=\box77
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/lm/lmodern.sty"
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/iftex/ifxetex.sty"
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/iftex/ifluatex.sty"
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/unicode-math/unicode-math.sty
+"
+Package: unicode-math 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLaTeX
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/unicode-math/unicode-math-luate
+x.sty"
+Package: unicode-math-luatex 2020/01/31 v0.8q Unicode maths in XeLaTeX and LuaLa
+TeX
+
+("d:/tex live/texlive/2020/texmf-dist/tex/lualatex/lualatex-math/lualatex-math.
+sty"
+Package: lualatex-math 2019/01/21 v1.8 Patches for mathematics typesetting with 
+LuaLaTeX
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/filehook/filehook.sty"
+Package: filehook 2020/02/03 v0.7 Hooks for input files
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/filehook/filehook-scrlfile.sty"
+Package: filehook-scrlfile 2020/02/02 v0.2 filehook patch for scrlfile package
+Package filehook Info: Package 'scrlfile' detected and compensated for on input 
+line 107.
+))
+Lua module: lualatex-math 2013/08/03 1.3 Patches for mathematics typesetting wit
+h LuaLaTeX
+
+Package lualatex-math Info: I'm going to patch macro \subarray.
+
+
+Package lualatex-math Info: I'm going to patch macro \frac .
+
+
+Package lualatex-math Info: I'm going to patch macro \genfrac .
+
+)
+\g__um_fam_int=\count345
+\g__um_fonts_used_int=\count346
+\l__um_primecount_int=\count347
+\g__um_primekern_muskip=\muskip18
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/unicode-math/unicode-math-table
+.tex")))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/fibeamer/beamerthemefibeamer.st
+y"
+Package hyperref Info: Option `unicode' set `true' on input line 61.
+
+LaTeX Warning: You have requested package `beamerthemefibeamer',
+               but the package provides `fibeamer/beamerthemefibeamer'.
+
+Package: fibeamer/beamerthemefibeamer 2019/12/16 v1.1.8 fibeamer MU beamer theme
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/microtype/microtype.sty"
+Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
+\MT@toks=\toks53
+\MT@count=\count348
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen294
+LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
+\MT@listname@count=\count349
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/microtype/microtype-luatex.def"
+File: microtype-luatex.def 2019/11/18 v2.7d Definitions specific to luatex (RS)
+Module microtype Info: overwriting function `keepligature' on input line 59
+LaTeX Info: Redefining \lsstyle on input line 695.
+LaTeX Info: Redefining \lslig on input line 695.
+\MT@outer@space=\skip68
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/microtype/microtype.cfg"
+File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/carlito/carlito.sty"
+Package: carlito 2014/08/20 (Bob Tennent) Supports Carlito fonts for LaTeX, pdfL
+aTeX, luaLaTeX and xeLaTeX.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty"
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+luaotfload | aux : font no 40 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 41 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 42 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 43 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'Carlito(0)' created for font 'Carlito'
+(fontspec)             with options [Ligatures = TeX,Scale = 1,Extension =
+(fontspec)             .ttf,Ligatures=TeX,Numbers =
+(fontspec)             {Lining,Proportional},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Regular.ttf]:mode=node;script=latn;lang
+uage=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Bold.ttf]:mode=node;script=latn;languag
+e=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Italic.ttf]:mode=node;script=latn;langu
+age=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-BoldItalic.ttf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 46 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 47 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 48 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 49 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'Carlito(1)' created for font 'Carlito'
+(fontspec)             with options [Ligatures = TeX,Scale = 1,Extension =
+(fontspec)             .ttf,Renderer=Basic,Numbers =
+(fontspec)             {Lining,Proportional},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Regular.ttf]:mode=base;script=latn;lang
+uage=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Bold.ttf]:mode=base;script=latn;languag
+e=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Italic.ttf]:mode=base;script=latn;langu
+age=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-BoldItalic.ttf]:mode=base;script=latn;l
+anguage=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> TU/Carlito(1)/m/n on input line 85.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> TU/Carlito(1)/bx/n on input line 85.
+LaTeX Font Info:    Font shape `TU/Carlito(0)/m/n' will be
+(Font)              scaled to size 10.95pt on input line 85.
+luaotfload | aux : font no 40 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 41 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 42 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 43 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'Carlito(2)' created for font 'Carlito'
+(fontspec)             with options [Ligatures = TeX,Scale = 1,Extension =
+(fontspec)             .ttf,Numbers = {Lining,Proportional},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Regular.ttf]:mode=node;script=latn;lang
+uage=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Bold.ttf]:mode=node;script=latn;languag
+e=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Italic.ttf]:mode=node;script=latn;langu
+age=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-BoldItalic.ttf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+lnum;+pnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 40 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 41 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 42 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 43 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'Carlito(3)' created for font 'Carlito'
+(fontspec)             with options [Ligatures = TeX,Scale = 1,Extension =
+(fontspec)             .ttf,Numbers = {Proportional,OldStyle},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Regular.ttf]:mode=node;script=latn;lang
+uage=dflt;+tlig;+pnum;+onum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Bold.ttf]:mode=node;script=latn;languag
+e=dflt;+tlig;+pnum;+onum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Italic.ttf]:mode=node;script=latn;langu
+age=dflt;+tlig;+pnum;+onum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-BoldItalic.ttf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+pnum;+onum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 40 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 41 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 42 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 43 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'Carlito(4)' created for font 'Carlito'
+(fontspec)             with options [Ligatures = TeX,Scale = 1,Extension =
+(fontspec)             .ttf,Numbers = {Proportional,Lining},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Regular.ttf]:mode=node;script=latn;lang
+uage=dflt;+tlig;+pnum;+lnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Bold.ttf]:mode=node;script=latn;languag
+e=dflt;+tlig;+pnum;+lnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Italic.ttf]:mode=node;script=latn;langu
+age=dflt;+tlig;+pnum;+lnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-BoldItalic.ttf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+pnum;+lnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 40 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 41 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 42 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 43 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'Carlito(5)' created for font 'Carlito'
+(fontspec)             with options [Ligatures = TeX,Scale = 1,Extension =
+(fontspec)             .ttf,Numbers = {Monospaced, Lining},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Regular.ttf]:mode=node;script=latn;lang
+uage=dflt;+tlig;+tnum;+lnum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Bold.ttf]:mode=node;script=latn;languag
+e=dflt;+tlig;+tnum;+lnum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Italic.ttf]:mode=node;script=latn;langu
+age=dflt;+tlig;+tnum;+lnum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-BoldItalic.ttf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+tnum;+lnum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+luaotfload | aux : font no 40 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 41 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 42 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 43 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'Carlito(6)' created for font 'Carlito'
+(fontspec)             with options [Ligatures = TeX,Scale = 1,Extension =
+(fontspec)             .ttf,Numbers = {Monospaced, OldStyle},UprightFont =
+(fontspec)             *-Regular,ItalicFont = *-Italic,BoldFont =
+(fontspec)             *-Bold,BoldItalicFont = *-BoldItalic].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Regular.ttf]:mode=node;script=latn;lang
+uage=dflt;+tlig;+tnum;+onum;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Bold.ttf]:mode=node;script=latn;languag
+e=dflt;+tlig;+tnum;+onum;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-Italic.ttf]:mode=node;script=latn;langu
+age=dflt;+tlig;+tnum;+onum;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"[Carlito-BoldItalic.ttf]:mode=node;script=latn;l
+anguage=dflt;+tlig;+tnum;+onum;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+LaTeX Info: Redefining \textin on input line 153.
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/doublestroke/dsfont.sty"
+Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+)
+luaotfload | aux : font no 57 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 58 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 59 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 60 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'DejaVuSansMono(0)' created for font
+(fontspec)             'DejaVu Sans Mono' with options
+(fontspec)             [WordSpace={1,0,0},HyphenChar=None,PunctuationSpace=WordS
+pace,Scale=0.85].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono:mode=node;script=latn;language
+=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono/B:mode=node;script=latn;langua
+ge=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono/I:mode=node;script=latn;langua
+ge=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono/BI:mode=node;script=latn;langu
+age=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font
+(fontspec)             =0\fontdimen 3\font \fontdimen 4\font =0\fontdimen
+(fontspec)             4\font \fontdimen 7\font =0\fontdimen 2\font
+(fontspec)             \tex_hyphenchar:D \font =-1\scan_stop: 
+
+luaotfload | aux : font no 67 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 68 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 69 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : font no 70 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'DejaVuSansMono(1)' created for font
+(fontspec)             'DejaVu Sans Mono' with options
+(fontspec)             [Renderer=Basic,Scale=0.85].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono:mode=base;script=latn;language
+=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono/B:mode=base;script=latn;langua
+ge=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono/I:mode=base;script=latn;langua
+ge=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.85]"DejaVuSansMono/BI:mode=base;script=latn;langu
+age=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> TU/DejaVuSansMono(1)/m/n on input line 
+220.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> TU/DejaVuSansMono(1)/bx/n on input line
+ 220.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/setspace/setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/fibeamer/theme/mu/beamercolorth
+emefibeamer-mu.sty"
+Package: fibeamer/theme/mu/beamercolorthemefibeamer-mu 2016/05/06
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/listings/listings.sty"
+\lst@mode=\count350
+\lst@gtempboxa=\box78
+\lst@token=\toks54
+\lst@length=\count351
+\lst@currlwidth=\dimen295
+\lst@column=\count352
+\lst@pos=\count353
+\lst@lostspace=\dimen296
+\lst@width=\dimen297
+\lst@newlines=\count354
+\lst@lineno=\count355
+\lst@maxwidth=\dimen298
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty"
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count356
+\lst@skipnumbers=\count357
+\lst@framebox=\box79
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/listings/listings.cfg"
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/luatex/luatexja/patches/lltjp-listing
+s.sty" ("d:/tex live/texlive/2020/texmf-dist/tex/luatex/luatexbase/luatexbase-c
+ctb.sty"
+Package: luatexbase-cctb 2015/10/04 v1.3 luatexbase interface to LuaTeX (legacy 
+subpackage) 
+)
+\CatcodeTableLTJlistings=\catcodetable8
+\ltj@lst@frame@lslimit=\dimen299
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/listings/lstmisc.sty"
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\lst@WFtoken=\toks55
+\lst@WF=\write5
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty" 
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty"
+Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.c
+ode.tex"
+File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodeparttextbox=\box80
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.cod
+e.tex"
+File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-versi
+on-0-65.sty"
+Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@nodesepstart=\dimen300
+\pgf@nodesepend=\dimen301
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-versi
+on-1-18.sty"
+Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgffor.sty" ("
+d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty"
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.te
+x")) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/pgf/math/pgfmath.sty" ("d:
+/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex")) ("d:
+/tex live/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex"
+Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex")
+\pgffor@iter=\dimen302
+\pgffor@skip=\dimen303
+\pgffor@stack=\toks56
+\pgffor@toks=\toks57
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.c
+ode.tex"
+Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryploth
+andlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@plot@mark@count=\count358
+\pgfplotmarksize=\dimen304
+)
+\tikz@lastx=\dimen305
+\tikz@lasty=\dimen306
+\tikz@lastxsaved=\dimen307
+\tikz@lastysaved=\dimen308
+\tikz@lastmovetox=\dimen309
+\tikz@lastmovetoy=\dimen310
+\tikzleveldistance=\dimen311
+\tikzsiblingdistance=\dimen312
+\tikz@figbox=\box81
+\tikz@figbox@bg=\box82
+\tikz@tempbox=\box83
+\tikz@tempbox@bg=\box84
+\tikztreelevel=\count359
+\tikznumberofchildren=\count360
+\tikznumberofcurrentchild=\count361
+\tikz@fig@count=\count362
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.c
+ode.tex"
+File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfmatrixcurrentrow=\count363
+\pgfmatrixcurrentcolumn=\count364
+\pgf@matrix@numberofcolumns=\count365
+)
+\tikz@expandcount=\count366
+
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librar
+ies/tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+Package hyperref Info: Option `colorlinks' set `true' on input line 86.
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/fibeamer/theme/mu/beamercolorth
+emefibeamer-mu-phil.sty"
+Package: fibeamer/theme/mu/beamercolorthemefibeamer-mu-phil 2016/05/06
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/fibeamer/theme/mu/beamerfontthe
+mefibeamer-mu.sty"
+Package: fibeamer/theme/mu/beamerfontthemefibeamer-mu 2016/01/12
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/fibeamer/theme/mu/beamerinnerth
+emefibeamer-mu.sty"
+Package: fibeamer/theme/mu/beamerinnerthemefibeamer-mu 2016/01/14
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/fibeamer/theme/mu/beamerouterth
+emefibeamer-mu.sty"
+Package: fibeamer/theme/mu/beamerouterthemefibeamer-mu 2016/01/12
+\fibeamer@lengths@baseunit=\skip69
+\fibeamer@lengths@footerpad=\skip70
+\fibeamer@lengths@margin=\skip71
+\fibeamer@lengths@titleline=\skip72
+\fibeamer@lengths@clipbottom=\skip73
+\fibeamer@lengths@cliptop=\skip74
+\fibeamer@lengths@logowidth=\skip75
+\fibeamer@lengths@logoheight=\skip76
+))
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/beamer/beamerfontthemestructure
+bold.sty") ("d:/tex live/texlive/2020/texmf-dist/tex/latex/upquote/upquote.sty"
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbat
+im
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/parskip/parskip.sty"
+Package: parskip 2020-05-19 v2.0e non-zero parskip adjustments
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/xurl/xurl.sty"
+Package: xurl 2020/01/24 v 0.09 modify URL breaks
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/bookmark/bookmark.sty"
+Package: bookmark 2019/12/03 v1.28 PDF bookmarks (HO)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/bookmark/bkm-pdftex.def"
+File: bkm-pdftex.def 2019/12/03 v1.28 bookmark driver for pdfTeX (HO)
+\BKM@id=\count367
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/generic/stringenc/se-pdfdoc.def"
+File: se-pdfdoc.def 2019/11/29 v1.12 stringenc: PDFDocEncoding
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 59.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty"
+Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count368
+\FV@InFile=\read3
+\FV@TabBox=\box85
+\c@FancyVerbLine=\count369
+\FV@StepNumber=\count370
+\FV@OutFile=\write6
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/framed/framed.sty"
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip77
+\fb@frw=\dimen313
+\fb@frh=\dimen314
+\FrameRule=\dimen315
+\FrameSep=\dimen316
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/psnfss/pifont.sty"
+Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
+LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/psnfss/upzd.fd"
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/psnfss/upsy.fd"
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+)) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/iitem/iitem.sty"
+Package: iitem 2013/03/31 v1.0 Go a step deeper in lists using the new commands 
+``iitem'', ``iiitem'' and ``ivtem''.
+\c@iitemcounter=\count371
+\c@iiitemcounter=\count372
+\c@ivtemcounter=\count373
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/natbib/natbib.sty"
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip78
+\bibsep=\skip79
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count374
+)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\\' on input line 116.
+
+LaTeX Font Info:    Redeclaring symbol font `CJKmath' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `CJKmath' in version `normal'
+(Font)                  LTJY3/song/m/n --> LTJY3/AdobeSongStd-Light(0)/m/n on in
+put line 119.
+LaTeX Font Info:    Overwriting symbol font `CJKmath' in version `bold'
+(Font)                  LTJY3/song/b/n --> LTJY3/AdobeSongStd-Light(0)/m/n on in
+put line 119.
+LaTeX Font Info:    Overwriting symbol font `CJKmath' in version `bold'
+(Font)                  LTJY3/AdobeSongStd-Light(0)/m/n --> LTJY3/AdobeSongStd-L
+ight(0)/b/n on input line 119.
+(./beamer-fibeam.aux)
+\openout1 = beamer-fibeam.aux
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for LTJY3/song/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+
+Package fontspec Info: Could not resolve font "AdobeHeitiStd-Regular/BI" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "AdobeHeitiStd-Regular/B" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "AdobeHeitiStd-Regular/I" (it
+(fontspec)             probably doesn't exist).
+
+luaotfload | aux : font no 35 (nil) does not define feature smcp for script latn
+ with language dflt
+
+Package fontspec Info: Font family 'AdobeHeitiStd-Regular(0)' created for font
+(fontspec)             'AdobeHeitiStd-Regular' with options
+(fontspec)             [NFSSEncoding=LTJY3,JFM=quanjiao,LTJFONTUID=2].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"AdobeHeitiStd-Regular:mode=node;script=latn;language=
+dflt;jfm=quanjiao;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 119.
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(32.00931pt, 300.17674pt, 32.00931pt)
+* v-part:(T,H,B)=(0.0pt, 273.14662pt, 0.0pt)
+* \paperwidth=364.19536pt
+* \paperheight=273.14662pt
+* \textwidth=300.17674pt
+* \textheight=244.6939pt
+* \oddsidemargin=-40.26068pt
+* \evensidemargin=-40.26068pt
+* \topmargin=-72.26999pt
+* \headheight=14.22636pt
+* \headsep=0.0pt
+* \topskip=11.0pt
+* \footskip=14.22636pt
+* \marginparwidth=4.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+("d:/tex live/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count375
+\scratchdimen=\dimen317
+\scratchbox=\box86
+\nofMPsegments=\count376
+\nofMParguments=\count377
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count378
+\MPscratchDim=\dimen318
+\MPnumerator=\count379
+\makeMPintoPDFobject=\count380
+\everyMPtoPDFconversion=\toks59
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
+y"
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
+5.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg"
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+
+)) ABD: EveryShipout initializing macros
+Package hyperref Info: Link coloring ON on input line 119.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty"
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty"
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/generic/gettitlestring/gettitlestring
+.sty"
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count381
+)
+LaTeX Info: Redefining \ref on input line 119.
+LaTeX Info: Redefining \pageref on input line 119.
+LaTeX Info: Redefining \nameref on input line 119.
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/translator/translator-basic-dic
+tionary-English.dict"
+Dictionary: translator-basic-dictionary, Language: English 
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/translator/translator-bibliogra
+phy-dictionary-English.dict"
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/translator/translator-environme
+nt-dictionary-English.dict"
+Dictionary: translator-environment-dictionary, Language: English 
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/translator/translator-months-di
+ctionary-English.dict"
+Dictionary: translator-months-dictionary, Language: English 
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/translator/translator-numbers-d
+ictionary-English.dict"
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/translator/translator-theorem-d
+ictionary-English.dict"
+Dictionary: translator-theorem-dictionary, Language: English 
+)
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/ctex/dictionary/translator-theo
+rem-dictionary-ChineseUTF8.dict"
+Dictionary: translator-theorem-dictionary, Language: ChineseUTF8 2020/06/06 v2.5
+.3 Chinese translation for theorem name (CTEX)
+)
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 119.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 119.
+
+Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCaps
+Font={},Script=Math,FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;language
+=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;language
+=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCaps
+Font={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmod
+ern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathS
+criptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },BoldFont={latinmodern-math.otf}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->"[latinmodern-math.otf]:mode=base;script=math;la
+nguage=dflt;"<6.57-9.3075>"[latinmodern-math.otf]:mode=base;script=math;language
+=dflt;+ssty=0;"<-6.57>"[latinmodern-math.otf]:mode=base;script=math;language=dfl
+t;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->"[latinmodern-math.otf]:mode=base;script=math;language
+=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: 
+
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `normal' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input 
+line 119.
+LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
+(Font)              `operators' in the math version `bold' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input
+ line 119.
+
+Package fontspec Info: latinmodern-math scale = 1.0001.
+
+
+Package fontspec Info: latinmodern-math scale = 1.0001.
+
+
+Package fontspec Info: latinmodern-math scale = 1.0001.
+
+
+Package fontspec Info: latinmodern-math scale = 1.0001.
+
+
+Package fontspec Info: latinmodern-math scale = 1.0001.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCaps
+Font={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmod
+ern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathS
+criptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },BoldFont={latinmodern-math.otf},ScaleAgain=1.0001,FontA
+djustment={\fontdimen
+(fontspec)             8\font =7.41315pt\relax \fontdimen 9\font
+(fontspec)             =4.31429pt\relax \fontdimen 10\font =4.86179pt\relax
+(fontspec)             \fontdimen 11\font =7.51169pt\relax \fontdimen 12\font
+(fontspec)             =3.77774pt\relax \fontdimen 13\font =3.97484pt\relax
+(fontspec)             \fontdimen 14\font =3.97484pt\relax \fontdimen 15\font
+(fontspec)             =3.16454pt\relax \fontdimen 16\font =2.70464pt\relax
+(fontspec)             \fontdimen 17\font =2.70464pt\relax \fontdimen 18\font
+(fontspec)             =2.73749pt\relax \fontdimen 19\font =2.18999pt\relax
+(fontspec)             \fontdimen 22\font =2.73749pt\relax \fontdimen 20\font
+(fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[1.0001]"[latinmodern-math.otf]:mode=base;scri
+pt=math;language=dflt;"<6.57-9.3075>s*[1.0001]"[latinmodern-math.otf]:mode=base;
+script=math;language=dflt;+ssty=0;"<-6.57>s*[1.0001]"[latinmodern-math.otf]:mode
+=base;script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =7.41315pt\relax \fontdimen 9\font =4.31429pt\relax
+(fontspec)             \fontdimen 10\font =4.86179pt\relax \fontdimen 11\font
+(fontspec)             =7.51169pt\relax \fontdimen 12\font =3.77774pt\relax
+(fontspec)             \fontdimen 13\font =3.97484pt\relax \fontdimen 14\font
+(fontspec)             =3.97484pt\relax \fontdimen 15\font =3.16454pt\relax
+(fontspec)             \fontdimen 16\font =2.70464pt\relax \fontdimen 17\font
+(fontspec)             =2.70464pt\relax \fontdimen 18\font =2.73749pt\relax
+(fontspec)             \fontdimen 19\font =2.18999pt\relax \fontdimen 22\font
+(fontspec)             =2.73749pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1.0001]"[latinmodern-math.otf]:mode=base;script=mat
+h;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =7.41315pt\relax \fontdimen 9\font =4.31429pt\relax
+(fontspec)             \fontdimen 10\font =4.86179pt\relax \fontdimen 11\font
+(fontspec)             =7.51169pt\relax \fontdimen 12\font =3.77774pt\relax
+(fontspec)             \fontdimen 13\font =3.97484pt\relax \fontdimen 14\font
+(fontspec)             =3.97484pt\relax \fontdimen 15\font =3.16454pt\relax
+(fontspec)             \fontdimen 16\font =2.70464pt\relax \fontdimen 17\font
+(fontspec)             =2.70464pt\relax \fontdimen 18\font =2.73749pt\relax
+(fontspec)             \fontdimen 19\font =2.18999pt\relax \fontdimen 22\font
+(fontspec)             =2.73749pt\relax \fontdimen 20\font =0pt\relax
+(fontspec)             \fontdimen 21\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input
+ line 119.
+LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
+(Font)              `symbols' in the math version `bold' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input
+ line 119.
+
+Package fontspec Info: latinmodern-math scale = 0.9999.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999.
+
+
+Package fontspec Info: latinmodern-math scale = 0.9999.
+
+
+Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
+(fontspec)             'latinmodern-math.otf' with options
+(fontspec)             [Renderer=Basic,BoldItalicFont={},ItalicFont={},SmallCaps
+Font={},Script=Math,SizeFeatures={{Size=9.3075-},{Size=6.57-9.3075,Font=latinmod
+ern-math.otf,Style=MathScript},{Size=-6.57,Font=latinmodern-math.otf,Style=MathS
+criptScript}},FontAdjustment={\__um_luatex_copy_fontdimens:
+(fontspec)             },BoldFont={latinmodern-math.otf},ScaleAgain=0.9999,FontA
+djustment={\fontdimen
+(fontspec)             8\font =0.43799pt\relax \fontdimen 9\font
+(fontspec)             =2.18999pt\relax \fontdimen 10\font =1.82864pt\relax
+(fontspec)             \fontdimen 11\font =1.21544pt\relax \fontdimen 12\font
+(fontspec)             =6.56999pt\relax \fontdimen 13\font =0pt\relax }].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <9.3075->s*[0.9999]"[latinmodern-math.otf]:mode=base;scri
+pt=math;language=dflt;"<6.57-9.3075>s*[0.9999]"[latinmodern-math.otf]:mode=base;
+script=math;language=dflt;+ssty=0;"<-6.57>s*[0.9999]"[latinmodern-math.otf]:mode
+=base;script=math;language=dflt;+ssty=1;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =0.43799pt\relax \fontdimen 9\font =2.18999pt\relax
+(fontspec)             \fontdimen 10\font =1.82864pt\relax \fontdimen 11\font
+(fontspec)             =1.21544pt\relax \fontdimen 12\font =6.56999pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax 
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999]"[latinmodern-math.otf]:mode=base;script=mat
+h;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
+(fontspec)             and font adjustment code:
+(fontspec)             \__um_luatex_copy_fontdimens: \fontdimen 8\font
+(fontspec)             =0.43799pt\relax \fontdimen 9\font =2.18999pt\relax
+(fontspec)             \fontdimen 10\font =1.82864pt\relax \fontdimen 11\font
+(fontspec)             =1.21544pt\relax \fontdimen 12\font =6.56999pt\relax
+(fontspec)             \fontdimen 13\font =0pt\relax 
+
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 11
+9.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input
+ line 119.
+LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
+(Font)              `largesymbols' in the math version `bold' on input line 119.
+
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input
+ line 119.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 11
+9.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/lm/omllmm.fd"
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.95116pt on input line 119.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.6658pt on input line 119.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.47559pt on input line 119.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.94882pt on input line 119.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.66417pt on input line 119.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.47441pt on input line 119.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 119.
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 119.
+
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Info: Redefining \microtypecontext on input line 119.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+LaTeX Info: Redefining \showhyphens on input line 119.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `Carlito' (encoding: TU).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Package microtype Warning: One or more slots in the configuration are unknown.
+(microtype)                Make sure that no text commands are used.
+(microtype)                See the documentation for details (the note
+(microtype)                on `luatexja' in section 9: `Hints and caveats').
+
+LaTeX Font Info:    Encoding `TU' has changed to `OT1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  TU/latinmodern-math.otf(1)/m/n --> OT1/zavm/m/n on input
+ line 119.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/lmm/m/it --> OML/zavm/m/it on input line 119.
+LaTeX Font Info:    Encoding `TU' has changed to `OMS' for symbol font
+(Font)              `symbols' in the math version `normal' on input line 119.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  TU/latinmodern-math.otf(2)/m/n --> OMS/zavm/m/n on input
+ line 119.
+LaTeX Font Info:    Encoding `TU' has changed to `OMX' for symbol font
+(Font)              `largesymbols' in the math version `normal' on input line 11
+9.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  TU/latinmodern-math.otf(3)/m/n --> OMX/iwona/m/n on inpu
+t line 119.
+\c@lstlisting=\count382
+(./beamer-fibeam.nav)
+LaTeX Font Info:    Font shape `TU/Carlito(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 119.
+LaTeX Font Info:    Font shape `TU/Carlito(0)/b/n' will be
+(Font)              scaled to size 6.0pt on input line 119.
+<fibeamer/logo/mu/fibeamer-mu-phil-english.pdf, id=13, 227.62138pt x 91.04816pt>
+
+File: fibeamer/logo/mu/fibeamer-mu-phil-english.pdf Graphic file (type pdf)
+<use fibeamer/logo/mu/fibeamer-mu-phil-english.pdf>
+Package luatex.def Info: fibeamer/logo/mu/fibeamer-mu-phil-english.pdf  used on 
+input line 120.
+(luatex.def)             Requested size: 149.3831pt x 59.7502pt.
+LaTeX Font Info:    Font shape `TU/Carlito(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 120.
+
+LaTeX Font Warning: Font shape `LTJY3/AdobeHeitiStd-Regular(0)/b/n' undefined
+(Font)              using `LTJY3/AdobeHeitiStd-Regular(0)/m/n' instead on input 
+line 120.
+
+LaTeX Font Info:    Font shape `TU/Carlito(0)/b/n' will be
+(Font)              scaled to size 17.28pt on input line 120.
+
+Overfull \hbox (2.0pt too wide) in paragraph at lines 120--120
+[][]  
+ []
+
+LaTeX Font Info:    Font shape `TU/Carlito(0)/b/n' will be
+(Font)              scaled to size 14.4pt on input line 120.
+LaTeX Font Info:    Trying to load font information for OT1+zavm on input line 1
+20.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/arev/ot1zavm.fd"
+File: ot1zavm.fd 2006/05/30 Fontinst v1.929 font definitions for OT1/zavm.
+)
+LaTeX Font Info:    Font shape `OML/zavm/m/it' will be
+(Font)              scaled to size 12.24008pt on input line 120.
+LaTeX Font Info:    Font shape `OML/zavm/m/it' will be
+(Font)              scaled to size 8.50006pt on input line 120.
+LaTeX Font Info:    Font shape `OML/zavm/m/it' will be
+(Font)              scaled to size 5.95004pt on input line 120.
+LaTeX Font Info:    Trying to load font information for OMS+zavm on input line 1
+20.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/arev/omszavm.fd"
+File: omszavm.fd 2006/05/30 Fontinst v1.929 font definitions for OMS/zavm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+iwona on input line 
+120.
+("d:/tex live/texlive/2020/texmf-dist/tex/latex/iwona/omxiwona.fd"
+File: omxiwona.fd 2008/07/22 v0.995 font definition file for OMX/iwona (MW)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/microtype/mt-msa.cfg"
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+) ("d:/tex live/texlive/2020/texmf-dist/tex/latex/microtype/mt-msb.cfg"
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Font shape `TU/Carlito(0)/b/n' will be
+(Font)              scaled to size 12.0pt on input line 120.
+LaTeX Font Info:    Font shape `OML/zavm/m/it' will be
+(Font)              scaled to size 10.20007pt on input line 120.
+LaTeX Font Info:    Font shape `OML/zavm/m/it' will be
+(Font)              scaled to size 6.80005pt on input line 120.
+LaTeX Font Info:    Font shape `OML/zavm/m/it' will be
+(Font)              scaled to size 5.10004pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Carlito(0)/b/n' will be
+(Font)              scaled to size 4.0pt on input line 120.
+LaTeX Font Info:    Font shape `TU/Carlito(0)/m/n' will be
+(Font)              scaled to size 4.0pt on input line 120.
+[1
+
+{d:/tex live/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<d:/tex l
+ive/texlive/2020/texmf-dist/tex/latex/fibeamer/logo/mu/fibeamer-mu-phil-english.
+pdf>]
+LaTeX Font Info:    Font shape `TU/Carlito(0)/b/it' will be
+(Font)              scaled to size 12.0pt on input line 133.
+
+LaTeX Font Warning: Font shape `LTJY3/AdobeSongStd-Light(0)/b/it' undefined
+(Font)              using `LTJY3/AdobeSongStd-Light(0)/b/n' instead on input lin
+e 133.
+
+[2
+
+]
+\openout4 = beamer-fibeam.vrb
+ (./beamer-fibeam.vrb
+
+Package fontspec Info: Could not resolve font "AdobeFangsongStd-Regular/BI"
+(fontspec)             (it probably doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "AdobeFangsongStd-Regular/B" (it
+(fontspec)             probably doesn't exist).
+
+
+Package fontspec Info: Could not resolve font "AdobeFangsongStd-Regular/I" (it
+(fontspec)             probably doesn't exist).
+
+luaotfload | aux : font no 201 (nil) does not define feature smcp for script lat
+n with language dflt
+LaTeX Font Info:    Font shape `TU/DejaVuSansMono(0)/m/n' will be
+(Font)              scaled to size 9.30756pt on input line 9.
+
+Package fontspec Info: Font family 'AdobeFangsongStd-Regular(0)' created for
+(fontspec)             font 'AdobeFangsongStd-Regular' with options
+(fontspec)             [NFSSEncoding=LTJY3,JFM=quanjiao,LTJFONTUID=3].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"AdobeFangsongStd-Regular:mode=node;script=latn;langua
+ge=dflt;jfm=quanjiao;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
+
+) [3
+
+]
+\openout4 = beamer-fibeam.vrb
+ (./beamer-fibeam.vrb) [4
+
+] [5
+
+
+] (./beamer-fibeam.bbl
+LaTeX Font Info:    Font shape `TU/Carlito(0)/m/it' will be
+(Font)              scaled to size 10.95pt on input line 5.
+
+LaTeX Font Warning: Font shape `LTJY3/AdobeHeitiStd-Regular(0)/m/it' undefined
+(Font)              using `LTJY3/AdobeHeitiStd-Regular(0)/m/n' instead on input 
+line 5.
+
+) [6
+
+]
+\tf@nav=\write7
+
+\openout7 = beamer-fibeam.nav
+\tf@toc=\write8
+
+\openout8 = beamer-fibeam.toc
+\tf@snm=\write9
+
+\openout9 = beamer-fibeam.snm
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 179.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 179.
+(./beamer-fibeam.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 179.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 179.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+)
+
+Here is how much of LuaTeX's memory you used:
+ 40054 strings out of 480885
+ 125171,1373583 words of node,token memory allocated
+ 16559 words of node memory still in use:
+   21 hlist, 7 vlist, 6 rule, 7 disc, 2 local_par, 58 glue, 33 kern, 18 penalty,
+ 2 margin_kern, 141 glyph, 5812 attribute, 348 glue_spec, 347 attribute_list, 1 
+shape, 8 write, 78 user_defined, 2 pdf_dest, 16 pdf_colorstack nodes
+   avail lists: 1:7,2:11028,3:291,4:300,5:45,6:46,7:1277,8:8,9:272,10:24,11:80
+ 55831 multiletter control sequences out of 65536+600000
+ 204 fonts using 137507159 bytes
+ 78i,16n,128p,831b,1020s stack positions out of 5000i,500n,10000p,200000b,100000s
+<d:/tex live/texlive/2020/texmf-dist/fonts/truetype/typoland/carlito/Carlito-Ita
+lic.ttf><c:/Windows/Fonts/DejaVuSansMono_0.ttf><d:/tex live/texlive/2020/texmf-d
+ist/fonts/truetype/typoland/carlito/Carlito-Regular.ttf><d:/tex live/texlive/202
+0/texmf-dist/fonts/truetype/typoland/carlito/Carlito-Bold.ttf><c:/Windows/Fonts/
+AdobeHeitiStd-Regular.otf>
+Output written on beamer-fibeam.pdf (6 pages, 108162 bytes).
+
+PDF statistics: 111 PDF objects out of 1000 (max. 8388607)
+ 74 compressed objects within 1 object stream
+ 18 named destinations out of 1000 (max. 131072)
+ 44 words of extra memory for PDF output out of 10000 (max. 100000000)
+
