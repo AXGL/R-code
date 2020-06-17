@@ -1,0 +1,72 @@
+---
+title: <center>R练习3</center>
+author: <center>薛贵林</center>
+date: <center>2020/5/18</center>
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,#用于显示代码，不显示就false
+  tidy = TRUE,#使得代码排版更整洁
+  warning = FALSE,#去掉运算结果得到waring信息
+  comment = ' ',#去掉运算结果的“#”号
+  message = FALSE,#去掉运算结果的提示信息
+  collapse = TRUE,#让一个代码块放在一起
+  prompt = TRUE,#代码开头以大于号开始
+  fig.width=9,
+  fig.height = 6
+  )
+```
+## 基础图形绘制
+```{r}
+library(plotrix)
+par(mfrow=c(1,1))                  
+x <- sample(c(1:200),200) 
+u <- rnorm(200, mean =0, sd =4)
+y<-2*x+u
+plot(x,y,type="b")
+lines(y)
+t<-rt(10000,2)
+head(t)
+c<-rt(10000,5)
+d<-rt(10000,10)
+e<-rt(10000,30)
+u<-rnorm(10000,0,1)
+par(mfrow=c(2,2))
+plot(t)
+lines(t)
+plot(c)
+lines(c)
+plot(d)
+lines(d)
+plot(e)
+lines(e)
+plot(u)
+lines(u)
+plot(density(t))
+plot(density(c))
+plot(density(d))
+plot(density(e))
+plot(density(u))
+lines(t)
+par(mfrow=c(2,2))
+hist(u)
+boxplot(u)
+qqnorm(u)
+u<- data.frame(1:10000,mean=0,sd=1)
+library(ggplot2)
+plot(x,y,type="l",ylab="Density oft(19)",xlim=c(-5,5))
+library(plotrix)
+par(mfrow=c(1,2))
+slices <- c(22, 35,25,18)
+lbls <- c("老年", "中年", "青年", "儿童")
+pie(slices, labels = lbls,main="Simple Pie Chart",edges=300,radius=1)
+pct <- round(slices/sum(slices)*100)
+lbls2 <- paste(lbls, " ", pct, "%", sep="")
+pie(slices, labels=lbls2, col=rainbow(length(lbls2)),
+    main="Pie Chart with Percentages",edges=300,radius=1)
+par(mfrow=c(1,1))
+pie3D(slices, labels=lbls,
+      main="3D Pie Chart ",edges=300,radius=1)
+```

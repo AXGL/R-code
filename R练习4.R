@@ -1,0 +1,45 @@
+library(readxl)
+SSEC <- read_excel("C:/Users/Administrator.SC-201809091908/Desktop/R语言/CH-01-05.xls",sheet = 1)
+SSEC_shjc <- read_excel("C:/Users/Administrator.SC-201809091908/Desktop/R语言/CH-01-05.xls",sheet = 2)
+SSEC_scgf <- read_excel("C:/Users/Administrator.SC-201809091908/Desktop/R语言/CH-01-05.xls",sheet = 3)
+SSEC_zggm <- read_excel("C:/Users/Administrator.SC-201809091908/Desktop/R语言/CH-01-05.xls",sheet = 4)
+Close.ptd.SSEC<-SEEC$SSEC_Close
+Close.rtd.SSEC<-diff(log(Close.ptd.SEEC))*100
+Close.ptd.shjc <- SSEC_shjc$SSEC_600009_Close                       
+Close.ptd.scgf <- SSEC_scgf$SSEC_600008_Close  
+Close.ptd.zggm <- SSEC_zggm$SSEC_600007_Close
+win.graph(width = 7,height = 6.5)
+par(mfrow=c(2,2),mar=c(5,4,3,2))
+Close.ptd.SSEC.ts<-ts(Close.ptd.SEEC,start=c(2006),freq=241)
+plot(Close.ptd.SSEC.ts, type="l",main="(a) SSEC Close Price Serises",xlab="Date",ylab="Price",cex.main=0.95,las=1)
+plot(Close.ptd.shjc[1:20], type="p",pch=17,main="(b) Close Price of Sample stocks ", xlab="Time",ylab="Price",cex.main=0.95,ylim=c(4,14),las=1)
+points(Close.ptd.scgf[1:20],pch=15)                           
+points(Close.ptd.zggm[1:20],pch=14)
+legend("bottomright", legend=c("SHJC_600009","SCGF_600008","ZGGM_600007"), pch=c(17,15,14),cex=0.7,lty=c(-1,-1,-1))    
+acf(Close.rtd.SSEC,main='',xlab='Lag',ylab='ACF',las=1)
+title(main='(c) SSEC ACF Test',cex.main=0.95)
+pacf(Close.rtd.SSEC,main='',xlab='Lag',ylab='PACF',las=1)   
+win.graph(width = 7,height = 6.5)
+par(mfrow=c(2,2),mar=c(5,4,3,2)) 
+qqnorm(Close.rtd.SSEC,main="(a) Normal QQ of SSEC ",cex.main=0.95,xlab='理论分位数',ylab='样本分位数')
+qqline(Close.rtd.SSEC)
+ECD.SSEC <- ecdf(Close.rtd.SSEC[1:10])
+plot(ECD.SSEC,lwd = 2,main="(b) ecdf of SSEC[10]",cex.main=0.95,las=1)
+xx <- unique(sort(c(seq(-3, 2, length=24), knots(ECD.SSEC)))) 
+lines(xx, ECD.SSEC (xx))                                                
+abline(v=knots(ECD.SSEC),lty=2,col='gray70')
+x1 <- c((-4):3)
+lines(x1,pnorm(x1,mean(Close.rtd.SSEC[1:10]),sd(Close.rtd.SSEC[1:10])))
+D <-density(Close.rtd.SSEC)
+plot(D, main="(c) Distribution of SSEC",xlab='收益',ylab='密度',
+     xlim = c(-7,7), ylim=c(0,0.5),cex.main=0.95)
+polygon(D, col="gray", border="black")                    
+curve(dnorm,lty = 2, add = TRUE)                
+abline(v=0,lty = 3)             
+legend("topright", legend=c("核密度","正态密度"),lty=c(1,2,3),cex=0.7)
+
+hist(Close.rtd.SSEC[1:100],xaxt='n',main='(d) Histogram of SSEC[100]',
+     xlab='收益/100',ylab='密度', freq=F,cex.main=0.95,las=1)       
+x2 <- c(-6:4)
+lines(x2,dnorm(x2,mean(Close.rtd.SSEC[1:100]),sd(Close.rtd.SSEC[1:100]))) 
+axis(1,at=axTicks(1),labels=as.integer(axTicks(1))/100)     

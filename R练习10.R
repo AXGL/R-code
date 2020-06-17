@@ -1,0 +1,169 @@
+#清理变量，减少内存占用
+rm(list=ls())
+
+# (2) 加载包
+library(zoo)                  
+library(timeSeries)  
+
+# 计算个股收益率
+fdata <- read.table("5-1.txt",header=T,colClasses="character")     
+clsprc <- as.numeric(fdata[,3])
+dates <- as.Date(fdata[,2])
+clsp <- zoo(clsprc, order.by = dates)                   
+lclsprc <- lag(clsp,k=-1)   #lag表示由后向前替换,这里是滞后一期                 
+clsprc <- as.numeric(fdata[2:237,3])#因为上面滞后了一行，所以要重新从第二行开始
+lclsprc <- as.numeric(lclsprc)
+
+
+#用三种方法计算每日收益率
+re <- 100 * (log(clsprc) - log(lclsprc))                        
+re.1 <- 100 * diff(log(clsp))                                  
+re.2 <- returns(clsp, method='continuous', percentage=TRUE)  
+head(re,10)
+head(re.1,10)
+head(re.2,10)
+
+# 计算算术平均数
+am <- mean(re)                                           
+am.1 <- mean(re.1)                                         
+am.2 <- mean(re.2, na.rm=TRUE)   
+cbind(am,am.1,am.2)
+
+# 计算几何平均数
+gm <- 100*(cumprod(re/100+1)[length(cumprod(re/100+1))]^(1/length(re)) -1 )
+
+gm.1 <- 100*(prod(re/100+1)^(1/length(re))-1)
+cbind(gm,gm.1)
+
+# 多股票收益率
+fdata1 <- read.table("CAQC.txt",header=T,colClasses="character")
+fdata2 <- read.table("ZXTX.txt",header=T,colClasses="character")
+knitr::kable(head(fdata1))
+knitr::kable(head(fdata2))
+mcls1 <- as.numeric(fdata1[,3])
+mcls2 <- as.numeric(fdata2[,3])
+trd1 <- as.yearmon(fdata1[,2])
+trd2 <- as.yearmon(fdata2[,2])
+head(trd1)
+head(trd2)
+cls1 <- zoo(mcls1,order.by=trd1)
+cls2 <- zoo(mcls2,order.by=trd2)
+dat.merge <- merge(cls1, cls2)#按照时间匹配起来
+head(dat.merge)
+tail(dat.merge)
+dim(dat.merge)
+
+# returns计算月对数收益率
+r.merge <- returns(dat.merge, method = 'continuous', percentage = TRUE)
+knitr::kable(print(r.merge))
+
+# 计算资产组合收益率
+da <- read.table("5-3.txt",header = T)
+sum(is.na(da)) #检查缺失值                                        
+p.app <- na.approx(da)     #给缺失值填充数值                           
+r.stocks <- diff(log(p.app))*100
+set.seed(12345)
+w <- runif(ncol(da), 0, 1)
+w <- w/sum(w)
+w
+rp <- r.stocks %*% w
+head(rp)
+
+
+
+###计算债券的收益率
+#计算内部收益
+f <- function(r, p, Cs){
+  n <- length(Cs)
+  tt <- 1:n
+  loss <- p - sum(Cs/((1+r)^tt))
+  loss
+}
+Cs <- c(20000, 20000, 30000, 40000)
+p <- 100000
+uniroot(f, c(0,1), p = p, Cs = Cs) #uniroot用于解方程
+
+
+#计算到期收益率
+f_exp <- function(r, p, Cs, Cp){
+  n <- length(Cs)
+  tt <- 1:n
+  loss <- p - sum(Cs/((1+r)^tt)) - Cp/(1+r)^n
+  loss
+}
+Cs <- rep(5000000, times=20)
+Cp <- 20000000
+p <- 30000000
+uniroot(f_exp, c(0,1), p=p, Cs=Cs, Cp=Cp) 
+
+
+
+
+# 计算书本例题5-6
+Cs <- rep(950000, times=15)
+Cp <- 15000000
+p <- 22710000
+r.expected <- 0.067
+r.half <- uniroot(f_exp, c(0,1), p=p, Cs=Cs, Cp=Cp)$root          # find the zero root of f function
+r.annulized <- r.half*2#这里年化收益率
+if (r.annulized>=r.expected){
+  cat('Do it, and the endougeneous return is', r.annulized, '\n')
+}else{
+  cat('DO NOT do it, and the endougeneous return is', r.annulized, '\n')
+}
+
+
+#计算有效年利率(书本例题)
+eff_rts <- function(pr,m){
+  ear <- (1 + pr)^m - 1 
+  ear
+}
+(da1<- eff_rts(0.05,2))
+(da2<- eff_rts(0.025,4))
+
+
+# 4. 计算久期
+du <- function(y,cupon,period,p0){
+  c2<-0
+  tc2<-0
+  for(n in 1:period){
+    t=n
+    if(n<period) c<-cupon else if(n==period) c<-cupon+p0
+    c1=c/(1+y)^n
+    tc1<-t*c1
+    c2<-c2+c1
+    tc2<-tc2+tc1
+    if(n==period) {
+      d<-tc2/(c2*2)           
+      md<-d/(1+y)              
+    }
+  }
+  list(d=d,md=md)
+}
+(re<-du(0.05,100,10,2000))
+
+
+# 债券凸度
+td <- function(y, cupon, period, p0){
+  c2<-0
+  tc2<-0
+  for(n in 1:period){
+    t=n
+    if(n<period) c<-cupon else if(n==period) c<-cupon+p0
+    c1=c/(1+y)^n
+    tc1<-t*(t+1)*c1
+    c2<-c2+c1
+    tc2<-tc2+tc1
+    if(n==period){
+      covex<-tc2/(c2*((1+y)^2))
+      yearlycovex<-covex/4
+    }
+  }
+  list(covex=covex,yearlycovex=yearlycovex)
+}
+(re <- td(0.05,5,10,1500))
+delta.r <- 0.04
+(effects <- 0.5*re$yearlycovex*delta.r^2)
+
+
+

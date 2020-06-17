@@ -1,0 +1,99 @@
+---
+title: "R practice 13"
+author: "XGL"
+date: "2020/6/9"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  highlight = TRUE,
+  eval = TRUE,
+  echo = TRUE,#用于显示代码，不显示就false
+  tidy = TRUE,#使得代码排版更整洁
+  warning = FALSE,#去掉运算结果得到waring信息
+  comment = ' ',#去掉运算结果的“#”号
+  message = FALSE,#去掉运算结果的提示信息
+  collapse = TRUE,#让一个代码块放在一起
+  prompt = TRUE,#代码开头以大于号开始
+  fig.height = 5
+  )
+```
+
+```{r}
+set.seed(250)
+
+num.T=100
+timeseries=arima.sim(list(order = c(1,1,2), ma=c(0.32,0.47), ar=0.8), n = num.T)+20
+plot(timeseries, type="b")
+```
+
+## partition into train and test
+```{r}
+train_series=timeseries[1:round(num.T*0.8)]
+test_series=timeseries[(round(num.T*0.8)+1):num.T]
+```
+
+### acf and pacf plot of original data
+
+```{r,fig.height=7}
+par(mfrow=c(2,1))
+acf.res <- acf(timeseries)      #acf plot
+pacf.res <- pacf(timeseries)     #pacf plot
+```
+
+### acf and pacf plot of differenced data
+```{r,fig.height=7}
+timeseries.d <- diff(timeseries) 
+par(mfrow=c(2,1))
+acf.res <- acf(timeseries.d)      #acf plot
+pacf.res <- pacf(timeseries.d)     #pacf plot
+```
+
+## make arima models
+
+```{r}
+arimaModel_1=arima(train_series, order=c(0,1,2))
+arimaModel_2=arima(train_series, order=c(1,1,0))
+arimaModel_3=arima(train_series, order=c(1,1,2))
+```
+
+### look at the parameters
+
+```{r}
+print(arimaModel_1)
+print(arimaModel_2)
+print(arimaModel_3)
+```
+
+### residual test
+
+```{r}
+Box.test(arimaModel_3$residuals, lag=10, type="Ljung-Box", fitdf=4)
+```
+
+### check stationarity
+
+```{r}
+abs(polyroot(c(1,-coef(arimaModel_3)[1])))
+```
+
+## prediction
+
+```{r}
+num.test <- 10
+forecast1=predict(arimaModel_1, n.ahead=num.test)
+forecast2=predict(arimaModel_2, n.ahead=num.test)
+forecast3=predict(arimaModel_3, n.ahead=num.test)
+
+pred_res <- cbind(test_series[1:num.test], forecast1$pred, forecast2$pred, forecast3$pred)
+pred_res
+```
+
+
+
+
+

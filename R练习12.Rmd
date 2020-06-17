@@ -1,0 +1,94 @@
+---
+title: "<center>R练习12</center>"
+author: "<center>薛贵林</center>"
+date: "<center>2020/6/2</center>"
+documentclass: ctexart
+output:
+  pdf_document: default
+  rticles::ctex:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  fig.height = 9,#定制图片大小
+  fig.width = 9,
+  tidy = TRUE,
+  warning = FALSE,
+  comment = ' ',
+  message = FALSE,
+  collapse = TRUE,
+  prompt = TRUE
+)
+```
+
+## Nile数据集
+```{r}
+#时间序列初步 ARIMA模型
+library(tseries)
+library(forecast)
+#在这里，我是用Nile数据集,验证数据平稳性
+par(mfrow=c(2,1))
+head(Nile)
+plot(Nile)
+Nile_d<-diff(Nile)
+plot(Nile_d)
+ndiffs(Nile)
+#使用ACF图和PACF图
+par(mfrow=c(2,1))
+acf.res <- acf(Nile)     
+pacf.res <- pacf(Nile) 
+pacf.res$acf[1:10]
+which(pacf.res$acf <= 2/sqrt(length(Nile)))[1]
+(ar.test <- ar(Nile, method="mle") )
+names(ar.test)
+#找出AIC值
+ar.test$aic     
+plot(ar.test$aic)
+ar.fit <- arima(Nile, order=c(1,0,0), fixed=c(NA,0)) 
+  
+#检查残差的独立性
+Box.test(ar.fit$residuals, lag=10, type="Ljung-Box", fitdf=1)
+plot(ar.fit$residuals)
+
+#检查特征函数的根是否大于1，如果大于1,ar模型是平稳的
+coef(ar.fit)
+abs(polyroot(c(1,-coef(ar.fit)[1])))
+#做预测
+(ar.pred <- predict(ar.fit, n.ahead=10, se.fit=TRUE) )
+```
+
+
+## nino数据集
+```{r}
+data(nino)
+head(nino)
+par(mfrow=c(2,1))
+plot(nino3)
+nino_d<-diff(nino3)
+plot(nino_d)
+ndiffs(nino3)
+#使用ACF图和PACF图
+par(mfrow=c(2,1))
+acf.res <- acf(nino3)     
+pacf.res <- pacf(nino3) 
+pacf.res$acf[1:10]
+which(pacf.res$acf <= 2/sqrt(length(Nile)))[1]
+(ar.test <- ar(nino3, method="mle") )
+names(ar.test)
+#找出AIC值
+ar.test$aic     
+plot(ar.test$aic)
+ar.fit <- arima(Nile, order=c(1,0,0), fixed=c(NA,0)) 
+
+#检查残差的独立性
+Box.test(ar.fit$residuals, lag=10, type="Ljung-Box", fitdf=1)
+plot(ar.fit$residuals)
+
+#检查特征函数的根是否大于1，如果大于1,ar模型是平稳的
+coef(ar.fit)
+abs(polyroot(c(1,-coef(ar.fit)[1])))
+#做预测
+(ar.pred <- predict(ar.fit, n.ahead=10, se.fit=TRUE) )
+```
